@@ -1,0 +1,459 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Mukta';
+    list-style: none;
+}
+html{
+    font-size: 62.5%;
+}
+:any-link{
+  text-decoration: none;
+}
+
+/* Header Part Start*/
+
+.main-navbar{
+    width: 100%;
+    background: rgba(129, 76, 194, 0.7);
+  }
+  .main-navbar .navbar-toggler{
+      color: #4c3b8c;
+  }
+  .main-navbar .navbar-toggler span{
+    color: #4c3b8c;
+    font-size: 3rem;
+    padding-top: .7rem;
+}
+  .main-navbar .main-navbar-item ul{
+    margin-left: 15rem;
+  }
+  .main-navbar .main-navbar-item ul li a{
+    color: white;
+    margin-left: 3rem;
+    font-size: 1.8rem;
+  }
+  .main-navbar .main-navbar-item ul li:last-child{
+    margin-left: 6rem;
+  }
+  .main-navbar .main-navbar-item ul li a:hover{
+    color: #4c3b8c;
+    transform: scale(1.1);
+  }
+  .Login-signup{
+      margin-top: .2rem;
+  }
+  .Login-signup:hover{
+    color: white !important;
+    transform: none !important;
+  }
+  .submit-btn{
+    width: 15rem;
+    margin: 0 auto;
+    background: #4c3b8c;
+    color: white;
+  }
+  .top-brand-name{
+    width: 10rem;
+    height: 4rem;
+    border-radius: 3rem;
+    background: #4c3b8c;
+    padding-top: .3rem;
+    padding-left: 1.6rem;
+  }
+  .top-brand-name a{
+    color: white;
+    font-size: 2rem;
+    padding-top: .7rem;
+  }
+  .Login-signup{
+    background: #4c3b8c;
+    border-radius: 3rem;
+    border-color: transparent;
+  }
+  .Login-signup:hover{
+    background: #4c3b8c;
+    border-color: transparent;
+  }
+  .btn-signup{
+    width: 15rem;
+    background: #4c3b8c;
+    color: white;
+  }
+  .btn-signup:hover{
+    color: white;
+  }
+  .search-bar{
+    margin: 0 auto;
+    width: 90rem;
+    height: 4.5rem;
+}
+.search-bar input{
+    border-radius: 3rem;
+    font-size: 2rem;
+}
+.search-bar button{
+    width:13rem;
+    background: #4c3b8c;
+    border: .2rem solid #4c3b8c;
+    color: white;
+    border-radius: 2rem;
+    margin-left: -13rem;
+    font-size: 2rem;
+}
+.search-bar button:hover{
+    color: white;
+}
+.second-nav{
+    background: #9071BD;
+}
+.second-nav span{
+    font-size: 2rem;
+    color: white;
+}
+.second-nav img{
+    width: 5.8rem;
+    height: 5.8rem;
+}
+  @media only screen and (max-width: 768px){
+      html{
+          font-size: 40%;
+      }
+      .search-bar{
+          width: 45rem;
+      }
+    .main-navbar .main-navbar-item ul{
+        margin-left: 0rem;
+        margin: 0 auto;
+      }
+      .main-navbar .main-navbar-item ul li:last-child{
+        margin-left: 0rem;
+        margin: 0 auto;
+      }
+      .main-navbar .main-navbar-item ul li{
+        margin: 0 auto;
+      }
+    
+  }
+  @media (min-width: 768px) and (max-width: 1200px){
+      html{
+          font-size: 55%;
+      }
+      .search-bar{
+        width: 60rem;
+    }
+   
+  }
+  @media (min-width: 1024px) and (max-width: 1200px){
+    html{
+        font-size: 50%;
+    }
+    .search-bar{
+      width: 90rem;
+  }
+    .second-nav span{
+    font-size: 3rem;
+}
+.second-nav img{
+    width: 6.8rem;
+    height: 6.8rem;
+}
+ 
+}
+@media (min-width: 1400px) and (max-width: 1710px){
+  html{
+      font-size: 70%;
+  }
+  .search-bar{
+    width: 90rem;
+}
+.main-navbar .main-navbar-item ul{
+  margin-left: 23rem;
+}
+.main-navbar .main-navbar-item ul li:last-child{
+  margin-left: 12rem;
+}
+}
+@media (min-width: 1710px) and (max-width: 2100px){
+  html{
+    font-size: 98%;
+  }
+
+}
+
+/* Header Part End*/
+
+/* Footer Part Start*/
+
+.our-partners{
+  width: 100%;
+  height: 23rem;
+  padding-top: 1.5rem ;
+  background: rgba(144, 113, 189, 0.7);
+}
+.our-partners .partners{
+  width: 15rem;
+  height: 5rem;
+  background: #4c3b8c;
+  font-size: 2.2rem;
+  color: white;
+  border-radius: 3rem;
+  padding-left: 1.7rem;
+  padding-top: .7rem;
+  margin: 0 auto;
+}
+.our-partners .partners-img{
+  width: 100%;
+  height: 10rem;
+  margin-top: 3rem;
+  padding-left: 7rem;
+  background: rgba(129, 76, 194, 0.7);
+}
+.partners-img .slide1 img{
+  width: 14rem;
+  height: 7.8rem;
+}
+.partners-img .slide{
+  margin-top: 2.5rem; 
+}
+.partners-img .slide1{
+margin-top: 1.2rem;
+}
+.partners-img .slide2{
+  margin-top: -3.2rem;
+  }
+.partners-img .slide4{
+  margin-top: -2.5rem; 
+}
+.main-footer{
+  width: 100%;
+  height: 32rem;
+  background: #835fbd;
+  display: flex;
+}
+.main-footer div ul li{
+  list-style: none;
+}
+.main-footer .first-part{
+  padding-top: 2rem;
+  padding-left: 10rem;
+}
+.first-part h2{
+  color: #4c3b8c;
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-left: -3rem;
+}
+.first-part p{
+  color: white;
+  width: 30rem;
+  font-size: 1.2rem;
+  margin-left: -3rem;
+  line-height: 1.8rem;
+}
+.secound-main-footer{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+}
+.secound-main-footer h2{
+  font-weight: bold;
+  color: #4c3b8c;
+}
+.secound-main-footer div ul li a{
+  color: white;
+  line-height: 4rem;
+  font-size: 1.8rem;
+  margin-left: -1.9rem;
+}
+.secound-main-footer div ul li a:hover{
+ color: #4c3b8c;
+ transform: scale(1.1);
+}
+.fivth-part ul li{
+  margin-top: 1rem;
+}
+.hori-line{
+  background: #4c3b8c;
+  z-index: 1000;
+  margin-top: -3.2rem;
+}
+.line{
+  background-color: #4C3B8C;
+  margin-top: 1rem;
+}
+.secound-footer{
+  width: 100%;
+  height: 10rem;
+  background: #835fbd;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.secound-footer .first-part{
+  margin-top: 4rem;
+}
+.secound-footer .secound-part .first{
+  width: 25rem;
+  height: 5rem;
+  background: #4c3b8c;
+  border-radius: 30px;
+  color: white;
+  font-size: 1.5rem;
+  padding-top: 1.2rem;
+  padding-left: 1rem;
+  margin-left: 2rem;
+  margin-top: 3rem;
+  float: left;
+}
+.secound-footer .secound-part .first a{
+  color: white;
+}
+.secound-footer .third-part{
+  margin-top: 3rem;
+}
+.secound-footer .first-part a img{
+  width: 6rem;
+  height: 2.5rem;
+  margin-left: .5rem;
+}
+.secound-footer .third-part a img{
+  width: 7rem;
+  height: 4rem;
+  margin-left: 1rem;
+}
+@media only screen and (max-width: 768px){
+  .main-footer{
+    display: inherit;
+    height: 67rem;
+  }
+  .main-footer .first-part{
+    padding-top: 2rem;
+    padding-left: 18rem;
+  }
+  .first-part h2{
+    margin-top: 1rem;
+    margin-left: 3.5rem;
+    font-size: 3rem;
+  }
+  .first-part p{
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-left: -9rem;
+    line-height: 2rem;
+  }
+  .secound-footer{
+    height: auto;
+    margin-top: -.5rem;
+  }
+  .secound-footer .secound-part .first{
+    margin-left: 1.5rem;
+  }
+  .secound-footer .first-part a img{
+    margin-left: 4rem;
+  }
+  .secound-footer .third-part a img{
+    margin-left: 5rem;
+    margin-top: -1rem;
+  }
+  .partners-img .slide2{
+    margin-top: -7.3rem; 
+  }
+  .partners-img .slide{
+  margin-top: 1rem;
+  }
+  .partners-img .slide3{
+    margin-top: -2.9rem;
+    }
+  .partners-img .slide4{
+    margin-top: -6rem; 
+  }
+  
+}
+@media (min-width: 768px) and (max-width: 1024px){
+  .main-footer{
+    height: 61rem;
+  }
+.main-footer .first-part a img{
+  padding-top: 1rem;
+  padding-left: 18rem;
+}
+.first-part h2{
+  margin-top: 1rem;
+  margin-left: 18rem;
+  font-size: 3rem;
+}
+.first-part p{
+  line-height: 2.6rem;
+}
+.secound-footer .secound-part .first{
+  margin-left: 12rem;
+  margin-top: 5rem;
+}
+.secound-footer .first-part{
+  margin-left: 15rem;
+}
+.secound-footer .third-part{
+  margin-left: 15rem;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
+.partners-img .slide2{
+  margin-top: -5rem; 
+}
+.partners-img .slide3{
+margin-top: -1.2rem;
+}
+.partners-img .slide4{
+  margin-top: -4rem; 
+}
+}
+@media (min-width: 1024px) and (max-width: 1200px){
+  .main-footer{
+    height: 42rem;
+  }
+  .secound-main-footer h2{
+    margin-top: 3rem;
+  }
+  .main-footer .first-part a img{
+    margin-left: -20rem;
+  }
+  .first-part h2{
+    color: #4c3b8c;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-left: -3rem;
+  }
+  .secound-footer .secound-part .first{
+    margin-left: 2rem;
+    margin-top: 3rem;
+  }
+  .secound-footer .first-part{
+    margin-left: 1rem;
+  }
+  .secound-footer .third-part{
+    margin-left: 1rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+  }
+  .secound-footer .first-part a img{
+    width: 6rem;
+    height: 2.5rem;
+    margin-left: .5rem;
+  }
+  .secound-footer .third-part a img{
+    width: 7rem;
+    height: 4rem;
+    margin-left: 1rem;
+  }
+}
+
+/* Footer Part End*/
+  
