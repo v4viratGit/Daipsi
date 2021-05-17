@@ -45,6 +45,7 @@
                 <li class="nav-item">
                   <a class="nav-link" href="contact us.html">Contact Us</a>
                 </li>
+               
                 <li>
                  <!-- First modal dialog -->
   <div class="modal fade" id="modal" aria-hidden="true" aria-labelledby="..." tabindex="-1">
@@ -55,14 +56,14 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <form>
+                    <form action="login.php" method="POST">
                       <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Email:</label>
-                        <input type="email" class="form-control" id="email">
+                        <input type="email" class="form-control" id="email" name="email">
                       </div>
                       <div class="mb-3">
                         <label for="message-text" class="col-form-label">Password:</label>
-                        <input type="password" class="form-control" id="password">
+                        <input type="password" class="form-control" id="password" name="pass">
                       </div>
                       <input type="submit" class="form-control submit-btn" value="Submit">
                     </form>
@@ -83,24 +84,24 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <form>
+              <form action="signup.php" method="POST">
                   <div class="mb-3">
-                      <label for="recipient-name" class="col-form-label">Name:</label>
-                      <input type="text" class="form-control" id="name">
+                      <label for="username" class="col-form-label">Name:</label>
+                      <input type="text" class="form-control" id="username" name="name">
                     </div>
                 <div class="mb-3">
-                  <label for="recipient-name" class="col-form-label">Email:</label>
-                  <input type="email" class="form-control" id="email">
+                  <label for="useremail" class="col-form-label">Email:</label>
+                  <input type="email" class="form-control" id="useremail" name="email">
                 </div>
                 <div class="mb-3">
-                  <label for="recipient-name" class="col-form-label">Mobile No:</label>
-                  <input type="number" class="form-control" id="mobile">
+                  <label for="usermobile" class="col-form-label">Mobile No:</label>
+                  <input type="number" class="form-control" id="usermobile" name="contact">
                 </div>
                 <div class="mb-3">
-                  <label for="message-text" class="col-form-label">Password:</label>
-                  <input type="password" class="form-control" id="password">
+                  <label for="passw" class="col-form-label">Password:</label>
+                  <input type="password" class="form-control" id="passw" name="pass">
                 </div>
-                <input type="submit" class="form-control submit-btn" value="Submit">
+                <input type="submit" class="form-control submit-btn" value="Submit" name="signup">
               </form>
             </div>
         </div>
