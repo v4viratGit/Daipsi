@@ -1,6 +1,16 @@
 <?php
     require 'dbconnection.php';
+    $email=$_SESSION['email'];
+    $queryForEmail = "SELECT name FROM users WHERE email='$email'";
+    $UserName = mysqli_query($con, $queryForEmail) or die(mysqli_error($con));
+    $course=$_GET["course"];
+    $queryForCoursePrice = "SELECT course_price FROM courses WHERE course_name='$course'";
+    $CoursePrice = mysqli_query($con, $queryForCoursePrice) or die(mysqli_error($con));
+    while ($row = $CoursePrice->fetch_assoc()) {
+      $CourseAmout=$row['course_price'];
+    }
 ?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -140,298 +150,45 @@
 
       <!-- Navbar End -->
 
-      <!-- Header Part Start -->
-
-      <div class="common-header">
-        <div class="common-header-img">
-          <img src="images/course name main img.png">
+      <!-- Billing information table start -->
+      <div class="container">
+        <table class="table table-bordered mt-5">
+            <thead>
+                <tr>
+                <th scope="col">User's Name</th>
+                <th scope="col">Course Name</th>
+                <th scope="col">Course Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><?php 
+                    while ($row = $UserName->fetch_assoc()) {
+                        echo $row['name']."<br>";
+                    }?>
+                    </td>
+                    <td><?php echo $course;?></td>
+                    <td><?php echo $CourseAmout;?></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="card">
+            <div class="card-header">
+                Buy right now
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Get access to the course content</h5>
+                <p class="card-text">instantly after the payment is done</p>
+                <form action="buy-course-script.php" method="POST">
+                    <input type="hidden" name="course_name" value="<?php echo $course;?>">
+                    <input type="hidden" name="course_link" value="<?php echo $course.".html";?>">
+                    <input type="hidden" name="course_amount" value="<?php echo $CourseAmout;?>">
+                    <button name="buy" type="submit" class="btn btn-primary">Confirm Payment</button>
+                </form>
+            </div>
         </div>
-        <div class="common-header-content">
-          <a href="https://www.youtube.com/embed/4u4FxnHLbq4"><img src="images/jee video.png"></a>
-          <div class="common-header-name">
-            <span>JEE</span>
-          </div>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry's standard dummy text ever dummy text of the printing since the 1500s.</p>
-        </div>
-      </div>
-
-      <!-- Header Part End -->
-
-             <!-- Course Inclusion Part Start -->
-
-             <div class="course-inclusion">
-              <div class="course-inclusion-heading">
-                <span>Course Inclusion</span>
-              </div>
-              <div class="course-inclusion-content">
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                  Facere quaerat eum laudantium nam velit delectus rerum similique ipsa? Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                  Lorem Ipsum has been the industry's standard dummy text ever dummy text of the printing since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                  Lorem Ipsum has been the industry's standard dummy text ever dummy text of the printing since the 1500s. </p>
-                  <img src="images/jee course.png">
-              </div>
-              <button><a href="billing-info.php?course=jee">BuY NoW</a></button>
-              </div>
-      
-             <!-- Course Inclusion Part End -->
-
-       <!-- About Us Common Part Start -->
-
-       <div class="common-about-us">
-        <div class="common-about-us-heading">
-          <span>Why Choose Us?</span>
-        </div>
-        <div class="about-us-common-content why-choose-us">
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-            Facere quaerat eum laudantium nam velit delectus rerum similique ipsa? Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry's standard dummy text ever dummy text of the printing since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry's standard dummy text ever dummy text of the printing since the 1500s. </p>
-            <img src="images/why choose us img.png">
-        </div>
-        </div>
-
-       <!-- About Us Common Part End -->
-
-      <!-- Who Design The Course Start -->
-
-<div class="common">
-  <div class="common-heading">
-    <span>Who Design The Course?</span>
-  </div>
-  <div class="common-content">
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-      Facere quaerat eum laudantium nam velit delectus rerum similique ipsa? </p>
-  </div>
-  <section class="common-slider our-teachers">
-    <div class="slide">
-      <img src="images/teacher (2).png">
-        <h1>Mansi Prajapati</h1>
-        <h2>Teachers</h2>
-        <h3>Crash Course JEE</h3>
-        <h4>All India Rank-08</h4>
     </div>
-    <div class="slide">
-      <img src="images/teacher (1).png">
-      <h1>Mukesh Kumar</h1>
-      <h2>Teachers</h2>
-      <h3>Crash Course NEET</h3>
-      <h4>All India Rank-18</h4>
-    </div>
-    <div class="slide">
-      <img src="images/teacher (2).png">
-        <h1>Manisha Gupta</h1>
-        <h2>Teachers</h2>
-        <h3>Crash Course JEE</h3>
-        <h4>All India Rank-21</h4>
-    </div>
-    <div class="slide">
-      <img src="images/teacher (1).png">
-        <h1>Mohd Zakir</h1>
-        <h2>Teachers</h2>
-        <h3>Crash Course CA</h3>
-        <h4>All India Rank-02</h4>
-    </div>
-    <div class="slide">
-      <img src="images/teacher (2).png">
-      <h1>Renu Gupta</h1>
-      <h2>Teachers</h2>
-      <h3>Crash Course UPSE</h3>
-      <h4>All India Rank-10</h4>
-    </div>
-    <div class="slide">
-      <img src="images/teacher (1).png">
-      <h1>Dilip Thakur</h1>
-      <h2>Teachers</h2>
-      <h3>Crash Course CS</h3>
-      <h4>All India Rank-16</h4>
-    </div>
-  </section>
-</div>
-
-<!-- Who Design The Course End -->
-
-       <!-- Recently Joined Students Start -->
-
-   <div class="common">
-    <div class="common-heading">
-      <span>Recently Joined Students</span>
-    </div>
-    <div class="common-content">
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-        Facere quaerat eum laudantium nam velit delectus rerum similique ipsa? </p>
-    </div>
-    <section class="common-slider recently-joined-students">
-      <div class="slide">
-        <img src="images/recently joined student (1).png">
-        <h1>Mansi Prajapati</h1>
-        <h2>Student</h2>
-        <h3>Crash Course JEE</h3>
-        <h4>All India Rank-08</h4>
-      </div>
-      <div class="slide">
-        <img src="images/recently joined student (2).png">
-        <h1>Mohd Moin</h1>
-        <h2>Student</h2>
-        <h3>Crash Course NEET</h3>
-        <h4>All India Rank-18</h4>
-      </div>
-      <div class="slide">
-        <img src="images/recently joined student (3).png">
-        <h1>Mohd Adil</h1>
-        <h2>Student</h2>
-        <h3>Crash Course CA</h3>
-        <h4>All India Rank-02</h4>
-      </div>
-      <div class="slide">
-        <img src="images/recently joined student (4).png">
-        <h1>Dilip Jadaun</h1>
-        <h2>Student</h2>
-        <h3>Crash Course CS</h3>
-        <h4>All India Rank-16</h4>
-      </div>
-      <div class="slide">
-        <img src="images/recently joined student (5).png">
-        <h1>Ravina Gupta</h1>
-        <h2>Student</h2>
-        <h3>Crash Course UPSE</h3>
-        <h4>All India Rank-10</h4>
-      </div>
-      <div class="slide">
-        <img src="images/recently joined student (6).png">
-        <h1>Mani Gupta</h1>
-        <h2>Student</h2>
-        <h3>Crash Course JEE</h3>
-        <h4>All India Rank-21</h4>
-      </div>
-    </section>
-  </div>
-
-<!-- Recently Joined Students End -->
-
-<!-- Our Teachers Start -->
-
-<div class="common">
-  <div class="common-heading">
-    <span>Our Teachers</span>
-  </div>
-  <div class="common-content">
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-      Facere quaerat eum laudantium nam velit delectus rerum similique ipsa? </p>
-  </div>
-  <section class="common-slider our-teachers">
-    <div class="slide">
-      <img src="images/teacher (2).png">
-        <h1>Mansi Prajapati</h1>
-        <h2>Teachers</h2>
-        <h3>Crash Course JEE</h3>
-        <h4>All India Rank-08</h4>
-    </div>
-    <div class="slide">
-      <img src="images/teacher (1).png">
-      <h1>Mukesh Kumar</h1>
-      <h2>Teachers</h2>
-      <h3>Crash Course NEET</h3>
-      <h4>All India Rank-18</h4>
-    </div>
-    <div class="slide">
-      <img src="images/teacher (2).png">
-        <h1>Manisha Gupta</h1>
-        <h2>Teachers</h2>
-        <h3>Crash Course JEE</h3>
-        <h4>All India Rank-21</h4>
-    </div>
-    <div class="slide">
-      <img src="images/teacher (1).png">
-        <h1>Mohd Zakir</h1>
-        <h2>Teachers</h2>
-        <h3>Crash Course CA</h3>
-        <h4>All India Rank-02</h4>
-    </div>
-    <div class="slide">
-      <img src="images/teacher (2).png">
-      <h1>Renu Gupta</h1>
-      <h2>Teachers</h2>
-      <h3>Crash Course UPSE</h3>
-      <h4>All India Rank-10</h4>
-    </div>
-    <div class="slide">
-      <img src="images/teacher (1).png">
-      <h1>Dilip Thakur</h1>
-      <h2>Teachers</h2>
-      <h3>Crash Course CS</h3>
-      <h4>All India Rank-16</h4>
-    </div>
-  </section>
-</div>
-
-<!-- Our Teachers End -->
-
-<!-- Our Ratings Start -->
-
-<div class="common">
-  <div class="common-heading">
-    <span>Our Ratings</span>
-  </div>
-  <div class="common-content">
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-      Facere quaerat eum laudantium nam velit delectus rerum similique ipsa? </p>
-  </div>
-  <section class="common-slider our-ratings">
-    <div class="slide">
-      <img src="images/review 1.jpg">
-      <h1>Mansi Prajapati</h1>
-      <h4>Education is something which can change someone’s life 
-        and can give him a way to achieve his/her goals. Daipsi will bring this change.</h4>
-      <h5>Wish u luck.👍</h5>
-    </div>
-    <div class="slide">
-      <img src="images/review 2.jpg">
-      <h1>Ravina Gupta</h1>
-      <h4>Education is something which can change someone’s life 
-        and can give him a way to achieve his/her goals. Daipsi will bring this change.</h4>
-        <h5>Wish u luck.👍</h5>
-    </div>
-    <div class="slide">
-      <img src="images/review 3.jpg">
-      <h1>Mohd Moin</h1>
-      <h4>Education is something which can change someone’s life 
-        and can give him a way to achieve his/her goals. Daipsi will bring this change.</h4>
-        <h5>Wish u luck.👍</h5>
-    </div>
-    <div class="slide">
-      <img src="images/review 4.jpg">
-      <h1>Mohd Adil</h1>
-      <h4>Education is something which can change someone’s life 
-        and can give him a way to achieve his/her goals. Daipsi will bring this change.</h4>
-        <h5>Wish u luck.👍</h5>
-    </div>
-    <div class="slide">
-      <img src="images/review 5.jpg">
-      <h1>Dilip Jadaun</h1>
-      <h4>Education is something which can change someone’s life 
-        and can give him a way to achieve his/her goals. Daipsi will bring this change.</h4>
-        <h5>Wish u luck.👍</h5>
-    </div>
-    <div class="slide">
-      <img src="images/review 6.jpg">
-      <h1>Abhishek kumar</h1>
-      <h4>Education is something which can change someone’s life 
-        and can give him a way to achieve his/her goals. Daipsi will bring this change.</h4>
-        <h5>Wish u luck.👍</h5>
-    </div>
-    <div class="slide">
-      <img src="images/review 7.jpg">
-      <h1>Kartikey Pandey</h1>
-      <h4>Education is something which can change someone’s life 
-        and can give him a way to achieve his/her goals. Daipsi will bring this change.</h4>
-        <h5>Wish u luck.👍</h5>
-    </div>
-  </section>
-</div>
-
-<!-- Our Ratings End -->
-
+      <!-- Billing information table end -->
       <!-- Footer Part Start -->    
       
     <div class="our-partners">
