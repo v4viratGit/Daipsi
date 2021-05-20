@@ -7,16 +7,21 @@ require 'dbconnection.php';
         $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
         $result = mysqli_query($con, $query) or die(mysqli_error($con));
         $count = mysqli_num_rows($result);
+
         if ($count == 1){
+            while($row = mysqli_fetch_assoc($result)) {
+              $_SESSION['nam']=$row["name"];
+              }
             $_SESSION['email'] = $email;
-            header('location: index.html');
+            $_SESSION['coun']="a";
+            header('location: index.php');
             
         }
         else
         {
             echo '<script>';
             echo 'alert("Incorrect email or passowrd")';  
-            echo 'window.location.href = "index.html"';
+            echo 'window.location.href = "index.php"';
             echo '</script>';
         }
     }
