@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2021 at 03:32 PM
+-- Generation Time: May 22, 2021 at 09:10 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.3.27
 
@@ -45,6 +45,27 @@ INSERT INTO `ca` (`question`) VALUES
 --
 
 CREATE TABLE `ca_queries` (
+  `question` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `commerce`
+--
+
+CREATE TABLE `commerce` (
+  `question` longtext NOT NULL,
+  `answer` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `commerce_queries`
+--
+
+CREATE TABLE `commerce_queries` (
   `question` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -101,15 +122,9 @@ CREATE TABLE `cs_queries` (
 --
 
 CREATE TABLE `jee` (
-  `question` longtext NOT NULL
+  `question` longtext NOT NULL,
+  `answer` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `jee`
---
-
-INSERT INTO `jee` (`question`) VALUES
-('What is the formula of gravitational force\r\nThe mathematical formula for gravitational force is F=GMmr2 F = G Mm r 2 where G is the gravitational constant.');
 
 -- --------------------------------------------------------
 
@@ -126,7 +141,35 @@ CREATE TABLE `jee_queries` (
 --
 
 INSERT INTO `jee_queries` (`question`) VALUES
+('What is the atomic value of hydrogen, JEE'),
+('what is water, JEE'),
 ('What is the atomic value of hydrogen, JEE');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `likedislike`
+--
+
+CREATE TABLE `likedislike` (
+  `al` int(30) NOT NULL,
+  `ad` int(30) NOT NULL,
+  `bl` int(30) NOT NULL,
+  `bd` int(30) NOT NULL,
+  `cl` int(30) NOT NULL,
+  `cd` int(30) NOT NULL,
+  `el` int(30) NOT NULL,
+  `ed` int(30) NOT NULL,
+  `fl` int(30) NOT NULL,
+  `fd` int(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `likedislike`
+--
+
+INSERT INTO `likedislike` (`al`, `ad`, `bl`, `bd`, `cl`, `cd`, `el`, `ed`, `fl`, `fd`) VALUES
+(45, 43, 34, 45, 32, 34, 23, 34, 54, 32);
 
 -- --------------------------------------------------------
 
@@ -162,16 +205,16 @@ INSERT INTO `mentorship` (`email_id`, `phone`, `fname`) VALUES
 --
 
 CREATE TABLE `neet` (
-  `question` longtext NOT NULL
+  `question` longtext NOT NULL,
+  `answer` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `neet`
 --
 
-INSERT INTO `neet` (`question`) VALUES
-('What is the formula of gravitational force\r\nThe mathematical formula for gravitational force is F=GMmr2 F = G Mm r 2 where G is the gravitational constant.'),
-('what is the level of water present in the human body\r\nUp to 60% of the human adult body is water');
+INSERT INTO `neet` (`question`, `answer`) VALUES
+('what is the average bone density of a human', 'The normal ranges for bone mineral density by our methodology were thus 0.96-1.39 g/cm3 for women and 0.92-1.35 g/cm3 for men.');
 
 -- --------------------------------------------------------
 
@@ -183,6 +226,13 @@ CREATE TABLE `neet_queries` (
   `question` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `neet_queries`
+--
+
+INSERT INTO `neet_queries` (`question`) VALUES
+('php, NEET');
+
 -- --------------------------------------------------------
 
 --
@@ -193,6 +243,7 @@ CREATE TABLE `purchases` (
   `id` int(11) NOT NULL,
   `users_email` varchar(30) NOT NULL,
   `course_name` varchar(30) NOT NULL,
+  `course_description` varchar(30) NOT NULL,
   `course_link` varchar(30) NOT NULL,
   `course_amount` int(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -201,9 +252,14 @@ CREATE TABLE `purchases` (
 -- Dumping data for table `purchases`
 --
 
-INSERT INTO `purchases` (`id`, `users_email`, `course_name`, `course_link`, `course_amount`) VALUES
-(13, 'virat@gmail.com', 'jee', 'jee.html', 0),
-(14, 'virat@gmail.com', 'jee', 'jee.html', 500);
+INSERT INTO `purchases` (`id`, `users_email`, `course_name`, `course_description`, `course_link`, `course_amount`) VALUES
+(9, 'virat@gmail.com', 'NEET', 'Complete NEET Course', 'neet-course-content.php', 500),
+(10, 'virat@gmail.com', 'JEE', 'Complete JEE Course', 'jee-course-content.php', 500),
+(0, 'varunsai.0913@gmail.com', 'NEET', 'Complete NEET Course', 'neet-course-content.php', 500),
+(0, 'varunsai.0913@gmail.com', 'JEE', 'Complete JEE Course', 'jee-course-content.php', 500),
+(13, 'virat@gmail.com', 'jee', '', 'jee.html', 0),
+(14, 'virat@gmail.com', 'jee', '', 'jee.html', 500),
+(0, '', 'jee', '', 'jee.html', 500);
 
 -- --------------------------------------------------------
 
@@ -224,6 +280,11 @@ INSERT INTO `queries` (`question`) VALUES
 ('what, NEET'),
 ('What is the atomic number of hydrogen, NEET'),
 ('What is the atomic number of hydrogen, JEE'),
+('what is an example question, CA'),
+('What is the atomic number of hydrogen, NEET'),
+('what, NEET'),
+('What is the atomic number of hydrogen, NEET'),
+('What is the atomic number of hydrogen, JEE'),
 ('what is an example question, CA');
 
 -- --------------------------------------------------------
@@ -233,16 +294,9 @@ INSERT INTO `queries` (`question`) VALUES
 --
 
 CREATE TABLE `upsc` (
-  `question` longtext NOT NULL
+  `question` longtext NOT NULL,
+  `answer` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `upsc`
---
-
-INSERT INTO `upsc` (`question`) VALUES
-('What is the formula of gravitational force\r\nThe mathematical formula for gravitational force is F=GMmr2 F = G Mm r 2 where G is the gravitational constant.'),
-('how many articles are there in the indian constitution\r\nThe original text of the Constitution contained 395 articles in 22 parts and eight schedules');
 
 -- --------------------------------------------------------
 
@@ -265,24 +319,23 @@ CREATE TABLE `users` (
   `name` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL,
-  `contact` varchar(30) NOT NULL,
-  `profilephoto` varchar(500) NOT NULL
+  `contact` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `contact`, `profilephoto`) VALUES
-(1, 'Virat', 'virat@gmail.com', '123456', '5786573857648', ''),
-(2, 'Ram', 'ram@gmail.com', '123456', '5786573857648', ''),
-(3, 'Bala', 'bala@gmail.com', '123456', '7894561233', ''),
-(4, 'abc', 'abc@xyz.com', '123456', '78942215856', ''),
-(5, 'xyz', 'xyz@gb.com', '123456', '7894561233', ''),
-(6, 'v', 'v@g.com', '123456', '46584654', ''),
-(7, 'Veer', 'veer@gmail.com', '123456', '7894561233', 'uploads/1.jpg'),
-(8, 'Jp', 'jp@gmail.com', '123456', '78942215856', 'uploads/2.jpg'),
-(9, 'Mina', 'mina@gmail.com', '1123456', '7685594545', 'uploads/ex1.jpg');
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `contact`) VALUES
+(1, 'Virat', 'virat@gmail.com', '123456', '5786573857648'),
+(2, 'Ram', 'ram@gmail.com', '123456', '5786573857648'),
+(3, 'varunsai0913', 'varunsai.0913@gmail.com', 'varu@123', '6303302732'),
+(4, 'varunsai0913', 'varun@gmail.com', 'varun123', '6303302732'),
+(5, 'varunsai0913', 'varun1@gmail.com', 'varun123', '6303302732'),
+(6, 'varunsai091', 'varun2@gmail.com', 'varun123', '6303302732'),
+(7, 'varunsai0913', 'varunsai.0913@gmail.com', 'vv', '6303302732'),
+(10, 'varun2', 'varunsai3.0913@gmail.com', 'varu@123', '1234567890'),
+(11, 'varun2', 'varunsai4.0913@gmail.com', 'varu@123', '1234567890');
 
 -- --------------------------------------------------------
 
@@ -300,6 +353,7 @@ CREATE TABLE `videos` (
 --
 
 INSERT INTO `videos` (`name`, `link`) VALUES
+('Chapter 1', 'videos/v1.mp4'),
 ('Chapter 1', 'videos/v1.mp4');
 
 --
@@ -333,12 +387,6 @@ ALTER TABLE `jee` ADD FULLTEXT KEY `question` (`question`);
 ALTER TABLE `neet` ADD FULLTEXT KEY `question` (`question`);
 
 --
--- Indexes for table `purchases`
---
-ALTER TABLE `purchases`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `upsc`
 --
 ALTER TABLE `upsc` ADD FULLTEXT KEY `question` (`question`);
@@ -360,16 +408,10 @@ ALTER TABLE `courses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `purchases`
---
-ALTER TABLE `purchases`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -157,7 +157,7 @@
               <label for="engineering"> Engineering </label>
               <input type="radio" id="medical" class="radio" name="course" value="NEET">
               <label for="medical"> Medical </label>
-              <input type="radio" id="commerce" class="radio" name="course" value="CA">
+              <input type="radio" id="commerce" class="radio" name="course" value="COMMERCE>
               <label for="commerce"> Commerce </label>
               <input type="radio" id="government-exams" class="radio" name="course" value="UPSC">
               <label for="government-exams"> Government Exams </label> <br>
