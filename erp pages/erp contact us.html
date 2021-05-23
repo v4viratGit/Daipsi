@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="erpstyle.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Daipsi / ERP Login</title>
+  </head>
+  <body>
+
+    <div class="main">        
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"><img src="images/logo.png"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="login erp.html">Login</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#registration"
+                    data-bs-whatever="@mdo">Register</a>
+                <div class="modal fade" id="registration" tabindex="-1" aria-labelledby="registration"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="registration">Registration</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <form>
+                            <div class="modal-body">
+                                    <div class="mb-3"> 
+                                      <label for="first-name" class="col-form-label">First Name:</label>
+                                      <input type="text" class="form-control" id="first-name">
+                                      <label for="last-name" class="col-form-label">Last Name:</label>
+                                      <input type="text" class="form-control" id="last-name">
+                                      <label for="full-name" class="col-form-label">Full Name:</label>
+                                      <input type="text" class="form-control" id="full-name">
+                                      <label for="about" class="col-form-label">About:</label>
+                                      <textarea class="form-control" id="about"></textarea>
+                                      <label for="location" class="col-form-label">Location:</label>
+                                      <input type="text" class="form-control" id="location">
+                                      <label for="email" class="col-form-label">Email Address:</label>
+                                      <input type="email" class="form-control" id="email">
+                                      <label for="designation" class="col-form-label">Designation:</label>
+                                      <input type="text" class="form-control" id="designation">
+                                      <label for="qualification" class="col-form-label">Qualification:</label>
+                                      <input type="text" class="form-control" id="qualification">
+                                      <label for="experiance" class="col-form-label">Experiance:</label>
+                                      <input type="text" class="form-control" id="experiance">
+                                      <label for="skills" class="col-form-label">Skills:</label>
+                                      <input type="text" class="form-control" id="skills">
+                                      <label for="password" class="col-form-label">Password:</label>
+                                      <input type="text" class="form-control" id="password">
+                                      <label for="file-name" class="col-form-label">Upload Image</label>
+                                      <input type="file" class="form-control" id="file-name">                        
+                                        
+                                    </div>                            
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="erp contact us.html">Contact Us</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        <div class="welcome-content">   
+    <div class="main-content">
+            <span>Welcome to the DAIPSI</span>
+        </div>
+        <div class="contact-content">
+            <a href="tel:+918368729506"><i class="fas fa-phone-volume"></i> +918368729506</a>
+            <a href="mailto:info@daipsi.com"><i class="fas fa-icon fa-envelope-open-text"></i> info@daipsi.com</a>
+            <a href="https://www.google.com/maps/place/ITS+Engineering+College/@28.4686536,77.4865079,17z/data=!3m1!4b1!4m5!3m4!1s0x390cea0bb627ba3f:0x98ceba75b8e54979!8m2!3d28.4686536!4d77.4886966">
+              <i class="fas fa-icon fa-map-marked-alt"></i> New Gen, IEDC, ITS Engg. College, Gr.Noida, UP</a>
+          </div>
+          <button><a href="https://www.google.com/maps/place/ITS+Engineering+College/@28.4686536,77.4865079,17z/data=!3m1!4b1!4m5!3m4!1s0x390cea0bb627ba3f:0x98ceba75b8e54979!8m2!3d28.4686536!4d77.4886966">
+            Get Direction</a></button>
+        </div>
+    </div>
+</div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
