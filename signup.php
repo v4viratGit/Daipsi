@@ -56,11 +56,11 @@ if(isset($_POST['signup']))
   
     if(mysqli_num_rows($run)>0)  
     {  
-echo '<script>';
-echo 'alert("Email $user_email already exists in our database, Please try another one!");';  
-echo 'window.location.href = "index.php";';
-echo '</script>';
-exit();
+        echo '<script>';
+        echo 'alert("Email $user_email already exists in our database, Please try another one!");';  
+        echo 'window.location.href = "index.php";';
+        echo '</script>';
+        exit();
 
     }  
     $p=" ";
@@ -71,10 +71,16 @@ exit();
         
         $_SESSION['user_id'] = $user_email;
         $_SESSION['email'] = $user_email;
+<<<<<<< HEAD
 echo '<script>';
 echo 'alert("signup sucess");';
 //echo 'window.location.href = "index.php";';
 echo '</script>';
+=======
+        echo '<script>';
+        echo 'window.location.href = "index.php";';
+        echo '</script>';
+>>>>>>> a0c555e11f1d4def0a2bcb5e8d8f450702b301ee
     }  
   
 }
