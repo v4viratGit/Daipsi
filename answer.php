@@ -73,29 +73,12 @@
         </div>
     </nav>
    <?php
-        $search=$_GET["search"];
+        $question=$_GET["question"];
         $course=$_GET["course"];
-        $sql="SELECT * FROM $course WHERE MATCH(question) AGAINST ('%" . $search . "%')";
+        $sql="SELECT * FROM $course WHERE (question) = '$question'";
         $run=mysqli_query($con,$sql) or die(mysqli_error($con));
-        $foundNum=mysqli_num_rows($run);
-        if($foundNum==0){
-            $table=$course."_queries";
-            echo "Sorry! we don't have the answer to your question, We'll try to post the answer within 24 hours.";
-            $insertQuery="insert into $table (question) VALUE ('$search, $course')";
-            $run=mysqli_query($con,$insertQuery) or die(mysqli_error($con));
-        } else
-            {
-            echo "<h1>$foundNum results found for your query $search</h1>";
-            $getQuery=mysqli_query($con,$sql);
-            while($runRows=mysqli_fetch_array($getQuery)){
-                echo "<form action='answer.php' method='GET'>"
-                      .$runRows['question'].
-                      "<input type='hidden' name='question' value='".$runRows['question']."'>
-                      <input type='hidden' name='course' value=$course>
-                      <button type='submit'>Answer</button>
-                      </form>";   
-            }
-
+        while($runRows=mysqli_fetch_array($run)){
+            echo $runRows['answer'];   
         }
    ?>
 
