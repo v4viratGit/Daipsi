@@ -137,7 +137,6 @@ function upload(){
     } else {
       echo "Error updating record: " . mysqli_error($con);
     }
-    
     mysqli_close($con);
 }
 ?>

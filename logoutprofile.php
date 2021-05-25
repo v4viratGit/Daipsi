@@ -1,6 +1,6 @@
 <?php 
 session_start();
-$p=" ";
+$p="";
 $_SESSION['lastname']=$p;
 $_SESSION['firstname']=$p;
 $_SESSION['skill']=$p;
