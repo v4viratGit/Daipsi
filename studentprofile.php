@@ -125,6 +125,8 @@ if (mysqli_num_rows($result) > 0) {
   echo "0 results";
 }
 
+
+
 }
 function upload(){
   require 'dbconnection.php';
