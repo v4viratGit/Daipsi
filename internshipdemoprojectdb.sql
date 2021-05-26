@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2021 at 09:10 AM
+-- Generation Time: May 26, 2021 at 01:14 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.3.27
 
@@ -169,7 +169,7 @@ CREATE TABLE `likedislike` (
 --
 
 INSERT INTO `likedislike` (`al`, `ad`, `bl`, `bd`, `cl`, `cd`, `el`, `ed`, `fl`, `fd`) VALUES
-(45, 43, 34, 45, 32, 34, 23, 34, 54, 32);
+(45, 44, 34, 46, 32, 34, 23, 34, 54, 32);
 
 -- --------------------------------------------------------
 
@@ -231,7 +231,34 @@ CREATE TABLE `neet_queries` (
 --
 
 INSERT INTO `neet_queries` (`question`) VALUES
-('php, NEET');
+('php, NEET'),
+('What is the atomic value of hydrogen, NEET');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `profil`
+--
+
+CREATE TABLE `profil` (
+  `email` varchar(40) NOT NULL,
+  `fname` text NOT NULL,
+  `lname` text NOT NULL,
+  `skills` text NOT NULL,
+  `qualification` text NOT NULL,
+  `username` text NOT NULL,
+  `about` text NOT NULL,
+  `photo` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `profil`
+--
+
+INSERT INTO `profil` (`email`, `fname`, `lname`, `skills`, `qualification`, `username`, `about`, `photo`) VALUES
+('varun5@gmail.com', 'M', 'Varun', 'c', 'cse', 'varun2', 'hi', 'images/American Express.png'),
+('varun8@gmail.com', 'n', 'varun', 'java', '12', 'varunsai', 'hivarun', '0'),
+('varun9@gmail.com', '', '', '', '', '', '', 'images/bhim-upi.png');
 
 -- --------------------------------------------------------
 
@@ -290,6 +317,36 @@ INSERT INTO `queries` (`question`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `teachers`
+--
+
+CREATE TABLE `teachers` (
+  `id` int(11) NOT NULL,
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `full_name` varchar(100) NOT NULL,
+  `about` varchar(100) NOT NULL,
+  `location` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `designation` varchar(100) NOT NULL,
+  `qualification` varchar(100) NOT NULL,
+  `experience` varchar(100) NOT NULL,
+  `skills` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `profile_photo` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `teachers`
+--
+
+INSERT INTO `teachers` (`id`, `first_name`, `last_name`, `full_name`, `about`, `location`, `email`, `designation`, `qualification`, `experience`, `skills`, `password`, `profile_photo`) VALUES
+(1, 'M', 'P', 'M P', 'tutot', 'India', 'mp@gmail.com', 'MA', 'MA', ' 1 year', 'upsc', '123456', ''),
+(3, 'Virat', 'Kamble', 'V. Kamble', 'Tutor', 'India', 'virat@gmail.com', 'JEE Tutor', 'Btech', ' 1 year', 'JEE', '123456', 'uploads/ex2.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `upsc`
 --
 
@@ -318,24 +375,31 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL,
-  `contact` varchar(30) NOT NULL
+  `userpass` varchar(30) NOT NULL,
+  `contact` varchar(30) NOT NULL,
+  `profilephoto` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `contact`) VALUES
-(1, 'Virat', 'virat@gmail.com', '123456', '5786573857648'),
-(2, 'Ram', 'ram@gmail.com', '123456', '5786573857648'),
-(3, 'varunsai0913', 'varunsai.0913@gmail.com', 'varu@123', '6303302732'),
-(4, 'varunsai0913', 'varun@gmail.com', 'varun123', '6303302732'),
-(5, 'varunsai0913', 'varun1@gmail.com', 'varun123', '6303302732'),
-(6, 'varunsai091', 'varun2@gmail.com', 'varun123', '6303302732'),
-(7, 'varunsai0913', 'varunsai.0913@gmail.com', 'vv', '6303302732'),
-(10, 'varun2', 'varunsai3.0913@gmail.com', 'varu@123', '1234567890'),
-(11, 'varun2', 'varunsai4.0913@gmail.com', 'varu@123', '1234567890');
+INSERT INTO `users` (`id`, `name`, `email`, `userpass`, `contact`, `profilephoto`) VALUES
+(1, 'Virat', 'virat@gmail.com', '123456', '5786573857648', ''),
+(2, 'Ram', 'ram@gmail.com', '123456', '5786573857648', ''),
+(3, 'varunsai0913', 'varunsai.0913@gmail.com', 'varu@123', '6303302732', ''),
+(4, 'varunsai0913', 'varun@gmail.com', 'varun123', '6303302732', ''),
+(5, 'varunsai0913', 'varun1@gmail.com', 'varun123', '6303302732', ''),
+(6, 'varunsai091', 'varun2@gmail.com', 'varun123', '6303302732', ''),
+(7, 'varunsai0913', 'varunsai.0913@gmail.com', 'vv', '6303302732', ''),
+(10, 'varun2', 'varunsai3.0913@gmail.com', 'varu@123', '1234567890', ''),
+(11, 'varun2', 'varunsai4.0913@gmail.com', 'varu@123', '1234567890', ''),
+(12, 'xyz', 'xyz@gb.com', '123456', '7894561233', 'uploads/1.jpg'),
+(13, 'varun', 'varun5@gmail.com', 'varu@123', '1234567890', ''),
+(14, 'varun2', 'varun6@gmail.com', 'varu@123', '1234567890', ''),
+(15, 'neelisetty venkata varunsai', 'varun7@gmail.com', 'varu@123', '1234567890', ''),
+(16, 'neelisetty venkata varunsai', 'varun8@gmail.com', 'varu@123', '1234567890', ''),
+(17, 'n varun', 'varun9@gmail.com', 'varu@123', '1234567890', '');
 
 -- --------------------------------------------------------
 
@@ -387,6 +451,12 @@ ALTER TABLE `jee` ADD FULLTEXT KEY `question` (`question`);
 ALTER TABLE `neet` ADD FULLTEXT KEY `question` (`question`);
 
 --
+-- Indexes for table `teachers`
+--
+ALTER TABLE `teachers`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `upsc`
 --
 ALTER TABLE `upsc` ADD FULLTEXT KEY `question` (`question`);
@@ -408,10 +478,16 @@ ALTER TABLE `courses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `teachers`
+--
+ALTER TABLE `teachers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
