@@ -1,3 +1,7 @@
+<?php
+    require '../dbconnection.php';
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -40,7 +44,12 @@
 
 
   <!-- User Profile Start -->
-
+  <?php
+    $email=$_SESSION['teacher_email'];
+    $query = "SELECT * FROM teachers WHERE email = '$email' ";
+    $result = mysqli_query($con, $query);
+  ?>
+        
   <div class="user-profile">
     <div class="user-profile-direction">
         <h1>Profile</h1>
@@ -48,7 +57,10 @@
     </div>
     <div class="user-profile-common-details">
         <div class="user-img">
-            <img src="images/teacher-erp-photo.jpg" alt="">
+        <?php
+        while ($row=mysqli_fetch_array($result)) {
+            echo "<img src='".$row['profile_photo']."'>";
+        ?>
             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#upload-image"
             data-bs-whatever="@mdo"><i class="fas fa-camera"></i></button>
         <div class="modal fade" id="upload-image" tabindex="-1" aria-labelledby="upload-image"
@@ -77,7 +89,7 @@
         </div>
         </div>
         <div class="user-name">
-            <span>Mr. Mohit Kumar</span>
+            <span><?php  echo $row['first_name'];?></span>
             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#upload-name"
             data-bs-whatever="@mdo"><i class="fas fa-edit"></i></button>
         <div class="modal fade" id="upload-name" tabindex="-1" aria-labelledby="upload-name"
@@ -92,7 +104,7 @@
                     <form>
                     <div class="modal-body">
                             <div class="mb-3">
-                                <label for="update-name" class="col-form-label">Neme:</label>
+                                <label for="update-name" class="col-form-label">Name:</label>
                                 <input type="text" class="form-control" id="update-name">
                             </div>                           
                     </div>
@@ -108,7 +120,7 @@
         <div class="user-about">
             <span>About</span><br>
             <div class="about-content">
-                <p>Teacher_About</p>
+                <p><?php  echo $row['about'];?></p>
             </div>
             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#edit-about"
             data-bs-whatever="@mdo"><i class="fas fa-edit"></i></button>
@@ -215,22 +227,22 @@
               <div class="user-personal-content">
                   <h2>First Name</h2>
                   <div class="content-line"></div>
-                  <h2 class="content-left">Teacher_Name</h2>
+                  <h2 class="content-left"><?php  echo $row['first_name'];?></h2>
               </div>
               <div class="user-personal-content">
                 <h2>Last Name</h2>
                 <div class="content-line"></div>
-                <h2>---</h2>
+                <h2><?php  echo $row['last_name'];?></h2>
             </div>            
             <div class="user-personal-content">
                 <h2>Location</h2>
                 <div class="content-line"></div>
-                <h2>Delhi NCR</h2>
+                <h2><?php  echo $row['location'];?></h2>
             </div>
             <div class="user-personal-content">
                 <h2>Email Address</h2>
                 <div class="content-line"></div>
-                <h2>teacher_email@emial.com</h2>
+                <h2><?php  echo $row['email'];?></h2>
             </div>
         </div>
     </div>
@@ -273,22 +285,22 @@
           <div class="user-personal-content">
               <h2>Designation</h2>
               <div class="content-line"></div>
-              <h2>Teacher</h2>
+              <h2><?php  echo $row['designation'];?></h2>
           </div>          
         <div class="user-personal-content">
             <h2>Qualification</h2>
             <div class="content-line"></div>
-            <h2>M.Tech</h2>
+            <h2><?php  echo $row['qualification'];?></h2>
         </div>
         <div class="user-personal-content">
-            <h2>Experiance</h2>
+            <h2>Experience</h2>
             <div class="content-line"></div>
-            <h2>5 Years</h2>
+            <h2><?php  echo $row['experience'];?></h2>
         </div>
         <div class="user-personal-content">
             <h2>Skills</h2>
             <div class="content-line"></div>
-            <h2>---</h2>
+            <h2><?php  echo $row['skills']; }?></h2>
         </div>
     </div>
 </div>
