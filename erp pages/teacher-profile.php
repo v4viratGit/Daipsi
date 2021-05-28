@@ -72,16 +72,16 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
-                      <form>
+                <form action="teacher-profile-update.php?teacherEmail=<?php echo $email ?>" method="POST" enctype="multipart/form-data">
                     <div class="modal-body">
                             <div class="mb-3">
                                 <label for="file-name" class="col-form-label">Upload Image</label>
-                                <input type="file" class="form-control" id="file-name">
+                                <input name="updatedProfilePhoto"type="file" class="form-control" id="file-name">
                             </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button name="editProfilePhoto"type="submit" class="btn btn-primary">Update</button>
                     </div>
                 </form>
                 </div>
@@ -89,7 +89,7 @@
         </div>
         </div>
         <div class="user-name">
-            <span><?php  echo $row['first_name'];?></span>
+            <span><?php  echo $row['full_name'];?></span>
             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#upload-name"
             data-bs-whatever="@mdo"><i class="fas fa-edit"></i></button>
         <div class="modal fade" id="upload-name" tabindex="-1" aria-labelledby="upload-name"
@@ -101,16 +101,16 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
-                    <form>
+                <form action="teacher-profile-update.php?teacherEmail=<?php echo $email ?>" method="POST">
                     <div class="modal-body">
                             <div class="mb-3">
                                 <label for="update-name" class="col-form-label">Name:</label>
-                                <input type="text" class="form-control" id="update-name">
+                                <input name ="updatedFullName" type="text" class="form-control" id="update-name" value="<?php  echo $row['full_name'];?>">
                             </div>                           
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button name="editFullName" type="submit" class="btn btn-primary">Update</button>
                     </div>
                 </form>
                 </div>
@@ -133,16 +133,16 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
-                    <form>
+                <form action="teacher-profile-update.php?teacherEmail=<?php echo $email ?>" method="POST">
                     <div class="modal-body">
                             <div class="mb-3">
                                 <label for="edit-about" class="col-form-label">Edit About:</label>
-                                <textarea class="form-control" id="edit-about"></textarea>
+                                <textarea name="updatedAbout" class="form-control" id="edit-about"><?php  echo $row['about'];?></textarea>
                             </div>                            
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button name="editAbout" type="submit" class="btn btn-primary">Update</button>
                     </div>
                 </form>
                 </div>
@@ -161,24 +161,24 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
                         </div>
-                        <form>
+                        <form action="teacher-profile-update.php?teacherEmail=<?php echo $email ?>" method="POST">
                         <div class="modal-body">                               
                                 <div class="mb-3">
                                     <label for="change-password" class="col-form-label">Current Password:</label>
-                                    <input type="text" class="form-control" id="change-password">
+                                    <input type="text" class="form-control" id="change-password" value="<?php  echo $row['password'];?>">
                                 </div>
                                 <div class="mb-3">
                                     <label for="new-password" class="col-form-label">New Password:</label>
-                                    <input type="text" class="form-control" id="new-password">
+                                    <input name="updatedPassword" type="password" class="form-control" id="new-password">
                                 </div>
                                 <div class="mb-3">
                                     <label for="check-password" class="col-form-label">Confirm New Password:</label>
-                                    <input type="text" class="form-control" id="check-password">
+                                    <input name="updatedPassword" type="password" class="form-control" id="check-password">
                                 </div>                                
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            <button name="editPassword" type="submit" class="btn btn-primary">Update</button>
                         </div>
                     </form>
                     </div>
@@ -202,20 +202,20 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
                         </div>
-                        <form>
+                        <form action="teacher-profile-update.php?teacherEmail=<?php echo $email ?>" method="POST">
                         <div class="modal-body">
                                 <div class="mb-3">
                                     <label for="first-name" class="col-form-label">First Name:</label>
-                                    <input type="text" class="form-control" id="first-name">
+                                    <input name="updatedFirstName" type="text" class="form-control" id="first-name" value="<?php  echo $row['first_name'];?>">
                                     <label for="last-name" class="col-form-label">Last Name:</label>
-                                    <input type="text" class="form-control" id="last-name">
+                                    <input name="updatedLastName" type="text" class="form-control" id="last-name" value="<?php  echo $row['last_name'];?>">
                                     <label for="location" class="col-form-label">Location:</label>
-                                    <input type="text" class="form-control" id="location">
+                                    <input name="updatedLocation" type="text" class="form-control" id="location" value="<?php  echo $row['location'];?>">
                                 </div>                            
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            <button name="editPersonalInformation" type="submit" class="btn btn-primary">Update</button>
                         </div>
                     </form>
                     </div>
@@ -260,20 +260,20 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
-                    <form>
+                <form action="teacher-profile-update.php?teacherEmail=<?php echo $email ?>" method="POST">
                     <div class="modal-body">
                             <div class="mb-3">                                
                                 <label for="qualification" class="col-form-label">Qualification:</label>
-                                <input type="text" class="form-control" id="qualification">
-                                <label for="experiance" class="col-form-label">Experiance:</label>
-                                <input type="text" class="form-control" id="experiance">
+                                <input name="updatedQualification" type="text" class="form-control" id="qualification" value="<?php  echo $row['qualification'];?>">
+                                <label for="experience" class="col-form-label">Experiance:</label>
+                                <input name="updatedExperience" type="text" class="form-control" id="experience" value="<?php  echo $row['experience'];?>">
                                 <label for="skills" class="col-form-label">Skills:</label>
-                                <input type="text" class="form-control" id="skills">
+                                <input name="updatedSkills" type="text" class="form-control" id="skills" value="<?php  echo $row['skills'];?>">
                             </div>                            
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button name="editProfessionalInformation" type="submit" class="btn btn-primary">Update</button>
                     </div>
                 </form>
                 </div>
