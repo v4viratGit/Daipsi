@@ -6,7 +6,7 @@ if(isset($_POST['submit']))
 {  
     $file_name = $_FILES["profile-photo"]["name"];
     $temp_name = $_FILES["profile-photo"]["tmp_name"];
-    $folder="uploads/".$file_name;
+    $folder="images/".$file_name;
     move_uploaded_file($temp_name, $folder);   
     
     $first_name=$_POST['first-name']; 
@@ -16,6 +16,7 @@ if(isset($_POST['submit']))
     $location=$_POST['location']; 
     $email=$_POST['email']; 
     $designation=$_POST['designation'];
+    $_SESSION['designation']=$designation;
     $qualification=$_POST['qualification'];  
     $experience=$_POST['experience']; 
     $skills=$_POST['skills']; 

@@ -1,5 +1,42 @@
 <?php
     require '../dbconnection.php';
+    $email=$_SESSION['teacher_email'];
+    $query = "SELECT * FROM teachers WHERE email = '$email' ";
+    $result = mysqli_query($con, $query);
+
+    $d=$_SESSION['designation'];
+    if($d=="physics")
+    {
+    $sql = "SELECT * FROM coursepurchase WHERE course_id=1 OR course_id=2";
+$result1 = mysqli_query($con, $sql);
+
+    }
+    if($d=="chemistry")
+    {
+    $sql = "SELECT * FROM coursepurchase WHERE course_id=1 OR course_id=2";
+$result1 = mysqli_query($con, $sql);
+
+    }
+    if($d=="botany")
+    {
+    $sql = "SELECT * FROM coursepurchase WHERE course_id=1";
+$result1 = mysqli_query($con, $sql);
+
+    }
+    if($d=="zoology")
+    {
+    $sql = "SELECT * FROM coursepurchase WHERE course_id=1";
+$result1 = mysqli_query($con, $sql);
+
+    }
+    if($d=="maths")
+    {
+    $sql = "SELECT * FROM coursepurchase WHERE course_id=2";
+$result1 = mysqli_query($con, $sql);
+
+    }
+mysqli_close($con);
+
 ?>
 
 <!doctype html>
@@ -20,6 +57,40 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <title>Daipsi | Teacher ERP</title>
+
+
+    <style>
+        table {
+            margin: 0 auto;
+            font-size: large;
+            border: 1px solid black;
+        }
+  
+        h1 {
+            text-align: center;
+            
+            font-size: xx-large;
+            font-family: 'Gill Sans', 'Gill Sans MT', 
+            ' Calibri', 'Trebuchet MS', 'sans-serif';
+        }
+  
+        td {
+            background-color: #E4F5D4;
+            border: 1px solid black;
+        }
+  
+        th,
+        td {
+            font-weight: bold;
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+  
+        td {
+            font-weight: lighter;
+        }
+    </style>
 </head>
 
 <body>
@@ -45,9 +116,9 @@
 
   <!-- User Profile Start -->
   <?php
-    $email=$_SESSION['teacher_email'];
-    $query = "SELECT * FROM teachers WHERE email = '$email' ";
-    $result = mysqli_query($con, $query);
+    //$email=$_SESSION['teacher_email'];
+    //$query = "SELECT * FROM teachers WHERE email = '$email' ";
+    //$result = mysqli_query($con, $query);
   ?>
         
   <div class="user-profile">
@@ -185,7 +256,7 @@
                 </div>
             </div>
         </div>
-        <a href="#" class="textcolor_white_textSize_up">Logout</a>
+        <a href="login erp.php" class="textcolor_white_textSize_up">Logout</a>
     </div>
     <div class="user-profile-main-details">
         <div class="user-personal-information">
@@ -308,6 +379,379 @@
 </div>
 
 <!-- User Profile End -->  
+ <!-- student enrolled section -->
+ <section class="student_enrolled_section">
+
+<div class="student_enrolled_box">
+    <h3 class="text-white">Student Enrolled</h3>
+    <p class="text-white">Student Details</p>
+</div>
+
+<div class="student_name_box">
+    <div class="filterAndCount">
+        <p>Filter by: <span>None</span></p>
+        <p>Student Count : 530</p>
+    </div>
+        </div>
+        <table>
+            <tr>
+                <th>course_id</th>
+                <th>email</th>
+                <th>username</th>
+                <th>course</th>
+            </tr>
+            <!-- PHP CODE TO FETCH DATA FROM ROWS-->
+            <?php   // LOOP TILL END OF DATA 
+                while($rows = mysqli_fetch_assoc($result1))
+                {
+             ?>
+            <tr>
+                <!--FETCHING DATA FROM EACH 
+                    ROW OF EVERY COLUMN-->
+                <td><?php echo $rows["course_id"];?></td>
+                <td><?php echo $rows["email"];?></td>
+                <td><?php echo $rows["username"];?></td>
+                <td><?php echo $rows["course"];?></td>
+    
+            </tr>
+            <?php
+                }
+             ?>
+        </table>
+    
+<div class="lastarea"></div>
+</section>
+
+<!-- asked question section -->
+<section class="asked_question_section my-3">
+<div class="asked_question_box">
+    <h3 class="text-white">Asked Questions</h3>
+</div>
+<div class="question_answer_box">
+    <div class="filterAndCount">
+        <p>Filter by: <span>None</span></p>
+        <p>Student Count : 530</p>
+
+    </div>
+    <div class="">
+        <div class="col-md-12 question_box">
+            <div class="card question_answer_card">
+                <div class="question_and_name">
+                    <p class="text-white fw-bold question">Question:How to get the date from the question and
+                        solve it?
+                    </p>
+                    <div class="name_and_img ">
+                        <p class="text-white fww-bold name">Abhishek Kushwaha
+                        </p>
+                        <img class="px-1" src="images/student_img.png">
+                    </div>
+                </div>
+                <div class="input_and_submit">
+                    <form action="#">
+                    <input type="text" placeholder="Answer">
+                    <button class="btn ">Submit</button>
+                </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 question_box">
+            <div class="card question_answer_card">
+                <div class="question_and_name">
+                    <p class="text-white fw-bold question">Question:How to get the date from the question and
+                        solve it?
+                    </p>
+                    <div class="name_and_img ">
+                        <p class="text-white fww-bold name">Abhishek Kushwaha
+                        </p>
+                        <img class="px-1" src="images/student_img.png">
+                    </div>
+                </div>
+                <div class="input_and_submit">
+                    <form action="#">
+                        <input type="text" placeholder="Answer">
+                        <button class="btn ">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 question_box">
+            <div class="card question_answer_card">
+                <div class="question_and_name">
+                    <p class="text-white fw-bold question">Question:How to get the date from the question and
+                        solve it?
+                    </p>
+                    <div class="name_and_img ">
+                        <p class="text-white fww-bold name">Abhishek Kushwaha
+                        </p>
+                        <img class="px-1" src="images/student_img.png">
+                    </div>
+                </div>
+                <div class="input_and_submit">
+                    <form action="#">
+                        <input type="text" placeholder="Answer">
+                        <button class="btn ">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- questions jo hidden hai -->
+        <div class="col-md-12 question_box">
+            <div class="card question_answer_card">
+                <div class="question_and_name">
+                    <p class="text-white fw-bold question">Question:How to get the date from the question and
+                        solve it?
+                    </p>
+                    <div class="name_and_img ">
+                        <p class="text-white fww-bold name">Abhishek Kushwaha
+                        </p>
+                        <img class="px-1" src="images/student_img.png">
+                    </div>
+                </div>
+                <div class="input_and_submit">
+                    <form action="#">
+                        <input type="text" placeholder="Answer">
+                        <button class="btn ">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 question_box">
+            <div class="card question_answer_card">
+                <div class="question_and_name">
+                    <p class="text-white fw-bold question">Question:How to get the date from the question and
+                        solve it?
+                    </p>
+                    <div class="name_and_img ">
+                        <p class="text-white fww-bold name">Abhishek Kushwaha
+                        </p>
+                        <img class="px-1" src="images/student_img.png">
+                    </div>
+                </div>
+                <div class="input_and_submit">
+                    <form action="#">
+                        <input type="text" placeholder="Answer">
+                        <button class="btn ">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 question_box">
+            <div class="card question_answer_card">
+                <div class="question_and_name">
+                    <p class="text-white fw-bold question">Question:How to get the date from the question and
+                        solve it?
+                    </p>
+                    <div class="name_and_img ">
+                        <p class="text-white fww-bold name">Abhishek Kushwaha
+                        </p>
+                        <img class="px-1" src="images/student_img.png">
+                    </div>
+                </div>
+                <div class="input_and_submit">
+                    <form action="#">
+                        <input type="text" placeholder="Answer">
+                        <button class="btn ">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- over -->
+
+        <div class="viewMoreDiv d-flex justify-content-center">
+            <button type="button" class="view_more_questions btn  text-white fw-bold ">View More</button>
+        </div>
+    </div>
+</div>
+<div class="lastarea"></div>
+</section>
+
+
+<!-- personal mentorship section -->
+<section class="personal_mentorship_section">
+<div class="personal_mentorship_box">
+    <h3 class="text-white">Personal Mentorship</h3>
+    <p class="text-white">Student Details</p>
+</div>
+<div class="class_sechedule_box">
+    <div class="filterAndCount">
+        <p>Filter by: <span>None</span></p>
+        <p>Student Count : 530</p>
+    </div>
+    <div class="">
+        <div class="col-md-12 schedule_box">
+            <div class="card time_date_card">
+                <div class="name_and_subject">
+                    <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
+                        Abhishek Kushwaha</p>
+                    <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png"
+                            alt="img">
+                        Normal Course JEE</p>
+                    <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_book_img.png" alt="img">
+                        Maths</p>
+                </div>
+                <div class="timeDate_and_submit">
+                    <form action="#">
+                    <div class="mb-3">
+                        <label for="time" class="form-label">Time</label>
+                        <input class="form-control" type="time" id="time">
+                      </div>
+                      <div class="mb-3">
+                        <label for="date" class="form-label">Date</label>
+                        <input class="form-control" type="date" id="date">
+                      </div>
+                      <button type="submit" class="btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 schedule_box">
+            <div class="card time_date_card">
+                <div class="name_and_subject">
+                    <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
+                        Abhishek Kushwaha</p>
+                    <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png"
+                            alt="img">
+                        Normal Course JEE</p>
+                    <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_book_img.png" alt="img">
+                        Maths</p>
+                </div>
+                <div class="timeDate_and_submit">
+                    <form action="#">
+                        <div class="mb-3">
+                            <label for="time" class="form-label">Time</label>
+                            <input class="form-control" type="time" id="time">
+                          </div>
+                          <div class="mb-3">
+                            <label for="date" class="form-label">Date</label>
+                            <input class="form-control" type="date" id="date">
+                          </div>
+                          <button type="submit" class="btn">Submit</button>
+                        </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 schedule_box">
+            <div class="card time_date_card">
+                <div class="name_and_subject">
+                    <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
+                        Abhishek Kushwaha</p>
+                    <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png"
+                            alt="img">
+                        Normal Course JEE</p>
+                    <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_book_img.png" alt="img">
+                        Maths</p>
+                </div>
+                <div class="timeDate_and_submit">
+                    <form action="#">
+                        <div class="mb-3">
+                            <label for="time" class="form-label">Time</label>
+                            <input class="form-control" type="time" id="time">
+                          </div>
+                          <div class="mb-3">
+                            <label for="date" class="form-label">Date</label>
+                            <input class="form-control" type="date" id="date">
+                          </div>
+                          <button type="submit" class="btn">Submit</button>
+                        </form>
+                </div>
+            </div>
+        </div>
+        <!-- card jo hidden hai -->
+        <div class="col-md-12 schedule_box">
+            <div class="card time_date_card">
+                <div class="name_and_subject">
+                    <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
+                        Abhishek Kushwaha</p>
+                    <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png"
+                            alt="img">
+                        Normal Course JEE</p>
+                    <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_book_img.png" alt="img">
+                        Maths</p>
+                </div>
+                <div class="timeDate_and_submit">
+                    <form action="#">
+                        <div class="mb-3">
+                            <label for="time" class="form-label">Time</label>
+                            <input class="form-control" type="time" id="time">
+                          </div>
+                          <div class="mb-3">
+                            <label for="date" class="form-label">Date</label>
+                            <input class="form-control" type="date" id="date">
+                          </div>
+                          <button type="submit" class="btn">Submit</button>
+                        </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 schedule_box">
+            <div class="card time_date_card">
+                <div class="name_and_subject">
+                    <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
+                        Abhishek Kushwaha</p>
+                    <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png"
+                            alt="img">
+                        Normal Course JEE</p>
+                    <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_book_img.png" alt="img">
+                        Maths</p>
+                </div>
+                <div class="timeDate_and_submit">
+                    <form action="#">
+                        <div class="mb-3">
+                            <label for="time" class="form-label">Time</label>
+                            <input class="form-control" type="time" id="time">
+                          </div>
+                          <div class="mb-3">
+                            <label for="date" class="form-label">Date</label>
+                            <input class="form-control" type="date" id="date">
+                          </div>
+                          <button type="submit" class="btn">Submit</button>
+                        </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 schedule_box">
+            <div class="card time_date_card">
+                <div class="name_and_subject">
+                    <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
+                        Abhishek Kushwaha</p>
+                    <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png"
+                            alt="img">
+                        Normal Course JEE</p>
+                    <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_book_img.png" alt="img">
+                        Maths</p>
+                </div>
+                <div class="timeDate_and_submit">
+                    <form action="#">
+                        <div class="mb-3">
+                            <label for="time" class="form-label">Time</label>
+                            <input class="form-control" type="time" id="time">
+                          </div>
+                          <div class="mb-3">
+                            <label for="date" class="form-label">Date</label>
+                            <input class="form-control" type="date" id="date">
+                          </div>
+                          <button type="submit" class="btn">Submit</button>
+                        </form>
+                </div>
+            </div>
+        </div>
+        <!-- over -->
+        <div class="viewMoreDiv d-flex justify-content-center">
+            <button type="button" class="view_more_schedule btn  text-white fw-bold ">View More</button>
+        </div>
+    </div>
+</div>
+<div class="lastarea"></div>
+</section>
+
+
+
 
      <!-- Footer Part Start -->    
       

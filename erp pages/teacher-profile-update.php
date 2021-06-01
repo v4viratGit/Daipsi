@@ -7,7 +7,7 @@ if(isset($_POST['editProfilePhoto']))
 {
     $file_name = $_FILES["updatedProfilePhoto"]["name"];
     $temp_name = $_FILES["updatedProfilePhoto"]["tmp_name"];
-    $folder="uploads/".$file_name;
+    $folder="images/".$file_name;
     move_uploaded_file($temp_name, $folder);  
     
     $updatePhotoQuery="update teachers set profile_photo='$folder' where email='$email'";

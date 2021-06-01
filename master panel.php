@@ -1,5 +1,20 @@
 <?php
 require 'dbconnection.php'; 
+$d=$_SESSION['designation'];
+if($d=="jee")
+{
+$sql = "SELECT * FROM coursepurchase WHERE  course_id=2";
+$result1 = mysqli_query($con, $sql);
+$sqll = "SELECT * FROM teachers WHERE  designation='maths' OR designation='physics' OR designation='chemistry'";
+$result2 = mysqli_query($con, $sqll);
+}
+if($d=="neet")
+{
+$sql = "SELECT * FROM coursepurchase WHERE  course_id=1";
+$result1 = mysqli_query($con, $sql);
+$sqll = "SELECT * FROM teachers WHERE  designation='botany' OR designation='physics' OR designation='chemistry' OR designation='zoology'";
+$result2 = mysqli_query($con, $sqll);
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -19,6 +34,39 @@ require 'dbconnection.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <title>Daipsi | Master Panel</title>
+
+    <style>
+        table {
+            margin: 0 auto;
+            font-size: large;
+            border: 1px solid black;
+        }
+  
+        h1 {
+            text-align: center;
+            
+            font-size: xx-large;
+            font-family: 'Gill Sans', 'Gill Sans MT', 
+            ' Calibri', 'Trebuchet MS', 'sans-serif';
+        }
+  
+        td {
+            background-color: #E4F5D4;
+            border: 1px solid black;
+        }
+  
+        th,
+        td {
+            font-weight: bold;
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+  
+        td {
+            font-weight: lighter;
+        }
+    </style>
 </head>
 
 <body>
@@ -325,180 +373,32 @@ require 'dbconnection.php';
                 <p>Filter by: <span>None</span></p>
                 <p>Student Count : 530</p>
             </div>
-
-            <div class="">
-                <div class="col-lg-12 card_box">
-                    <div class="card student_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            Normal Course NEET</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            1 Months</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12 card_box">
-                    <div class="card student_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            Subject Course NEET</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            3 Months</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12 card_box">
-                    <div class="card student_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            Normal Course JEE</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            9 Months</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12 card_box">
-                    <div class="card student_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            Normal Course NEET</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            3 Months</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12  card_box">
-                    <div class="card student_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            Subject Course JEE</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            3 Months</p>
-                    </div>
-                </div>
-
-                <!-- Student name jo hidden hai -->
-                <div class="col-md-12 card_box">
-                    <div class="card student_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            Normal Course NEET</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            1 Months</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12 card_box">
-                    <div class="card student_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            Subject Course NEET</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            6 Months</p>
-                    </div>
-                </div>
-
-                <div class=" col-md-12 card_box">
-                    <div class="card student_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            Normal Course NEET</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            1 Months</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12 card_box">
-                    <div class="card student_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            Subject Course JEE</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            3 Months</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12 card_box">
-                    <div class="card student_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            Normal Course JEE</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            1 Months</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12 card_box ">
-                    <div class="card student_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            Subject Course JEE</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            6 Months</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12 card_box ">
-                    <div class="card student_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            Subject Course NEET</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            9 Months</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12 card_box ">
-                    <div class="card student_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            Subject Course NEET</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            9 Months</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12 card_box ">
-                    <div class="card student_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            Subject Course NEET</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            9 Months</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12 card_box ">
-                    <div class="card student_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            Subject Course NEET</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            9 Months</p>
-                    </div>
-                </div>
-                <!-- over -->
-                <div class="viewMoreDiv d-flex justify-content-center">
-                    <button type="button" class="viewmore btn  text-white fw-bold ">View More</button>
-                </div>
-            </div>
-
         </div>
+        <table>
+            <tr>
+                <th>course_id</th>
+                <th>email</th>
+                <th>username</th>
+                <th>course</th>
+            </tr>
+            <!-- PHP CODE TO FETCH DATA FROM ROWS-->
+            <?php   // LOOP TILL END OF DATA 
+                while($rows = mysqli_fetch_assoc($result1))
+                {
+             ?>
+            <tr>
+                <!--FETCHING DATA FROM EACH 
+                    ROW OF EVERY COLUMN-->
+                <td><?php echo $rows["course_id"];?></td>
+                <td><?php echo $rows["email"];?></td>
+                <td><?php echo $rows["username"];?></td>
+                <td><?php echo $rows["course"];?></td>
+    
+            </tr>
+            <?php
+                }
+             ?>
+        </table>
         <div class="lastarea"></div>
     </section>
 
@@ -842,180 +742,32 @@ require 'dbconnection.php';
                 <p>Filter by: <span>None</span></p>
                 <p>Student Count : 530</p>
             </div>
-
-            <div class="">
-                <div class="col-md-12 teacher_box">
-                    <div class="card teacher_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            B.Tech</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            5 years</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12 teacher_box">
-                    <div class="card teacher_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            B.Tech</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            5 years</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12 teacher_box">
-                    <div class="card teacher_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            B.Tech</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            5 years</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12 teacher_box">
-                    <div class="card teacher_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            B.Tech</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            5 years</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12  teacher_box">
-                    <div class="card teacher_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            B.Tech</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            5 years</p>
-                    </div>
-                </div>
-
-                <!-- Teascher's name jo hidden hai -->
-                <div class="col-md-12 teacher_box">
-                    <div class="card teacher_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            B.Tech</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            5 years</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12 teacher_box">
-                    <div class="card teacher_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            B.Tech</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            5 years</p>
-                    </div>
-                </div>
-
-                <div class=" col-md-12 teacher_box">
-                    <div class="card teacher_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            B.Tech</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            5 years</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12 teacher_box">
-                    <div class="card teacher_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            B.Tech</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            5 years</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12 teacher_box">
-                    <div class="card teacher_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            B.Tech</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            5 years</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12 teacher_box ">
-                    <div class="card teacher_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            B.Tech</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            5 years</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12 teacher_box ">
-                    <div class="card teacher_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            B.Tech</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            5 years</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12 teacher_box ">
-                    <div class="card teacher_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            B.Tech</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            5 years</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12 teacher_box ">
-                    <div class="card teacher_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            B.Tech</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            5 years</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12 teacher_box ">
-                    <div class="card teacher_name_card">
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                            Abhishek Kushwaha</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
-                            B.tech</p>
-                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
-                            5 years</p>
-                    </div>
-                </div>
-                <!-- over -->
-                <div class="viewMoreDiv d-flex justify-content-center">
-                    <button type="button" class="viewmore_teacher btn  text-white fw-bold ">View More</button>
-                </div>
-            </div>
-
         </div>
+        <table>
+            <tr>
+                <th>full name</th>
+                <th>email</th>
+                <th>designation</th>
+                <th>experiance</th>
+            </tr>
+            <!-- PHP CODE TO FETCH DATA FROM ROWS-->
+            <?php   // LOOP TILL END OF DATA 
+                while($rows = mysqli_fetch_assoc($result2))
+                {
+             ?>
+            <tr>
+                <!--FETCHING DATA FROM EACH 
+                    ROW OF EVERY COLUMN-->
+                <td><?php echo $rows["full_name"];?></td>
+                <td><?php echo $rows["email"];?></td>
+                <td><?php echo $rows["designation"];?></td>
+                <td><?php echo $rows["experience"];?></td>
+    
+            </tr>
+            <?php
+                }
+             ?>
+        </table>
         <div class="lastarea"></div>
     </section>
 
