@@ -152,7 +152,7 @@
         <nav class="navbar">
           <div class="container-fluid">
             <span>Updated Earth</span>
-            <form action="search.php" method="GET" class="search-bar">
+            <form action="search result.php" method="GET" class="search-bar">
               <input type="radio" id="engineering" class="radio" name="course" value="JEE">
               <label for="engineering"> Engineering </label>
               <input type="radio" id="medical" class="radio" name="course" value="NEET">
