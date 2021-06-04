@@ -16,13 +16,10 @@
         $ed=$row['ed'];
         $fl=$row['fl'];
         $fd=$row['fd'];
-      $_SESSION['al']=$al;
-      $_SESSION['ad']=$ad;
       }
     } else {
       echo "0 results";
     }
-
 
 ?>
 <!doctype html>
@@ -32,7 +29,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css" >
@@ -161,7 +157,7 @@
               <label for="engineering"> Engineering </label>
               <input type="radio" id="medical" class="radio" name="course" value="NEET">
               <label for="medical"> Medical </label>
-              <input type="radio" id="commerce" class="radio" name="course" value="COMMERCE">
+              <input type="radio" id="commerce" class="radio" name="course" value="COMMERCE>
               <label for="commerce"> Commerce </label>
               <input type="radio" id="government-exams" class="radio" name="course" value="UPSC">
               <label for="government-exams"> Government Exams </label> <br>
@@ -940,40 +936,17 @@
  //if(f>0 && d==1){
   //   f--;
 // }
-g.innerHTML=e;
+ g.innerHTML=e;
  h.innerHTML=f;
- 
-//  if(a==="al" && b==="ad")
-//  {
-//    var l=e.toString();
-//    var d=f.toString();
-//  $.ajax({
-//   method: "POST",
-//   url: "courselikedislike.php",
-//   data: {like:l,dislike:d}
-// })
-   
-//  }
-//  else if(a==="bl" && b==="bd")
-//  {
-//   var l=e.toString();
-//    var d=f.toString();
-//  $.ajax({
-//   method: "POST",
-//   url: "courselikedislike.php",
-//   data: {like:l,dislike:d}
-// })
-//  }
 
-var l=e.toString();
-  var d=f.toString();
- $.ajax({
-  method: "POST",
-  url: "courselikedislike.php",
-  data: {like:l,dislike:d,pl:a,pd:b}
-})
-   
+var data={
+  like:e,
+  dislike:f,
+  pl:a,
+  pd:b
 
+};
+$.post("courselikedislike.php",data);
 
    }
 
@@ -1042,26 +1015,9 @@ var l=e.toString();
  
  g.innerHTML=e;
  h.innerHTML=f;
-//  if(a==="al" && b==="ad")
-//  {
-//    var l=e.toString();
-//    var d=f.toString();
-//  $.ajax({
-//   method: "POST",
-//   url: "courselikedislike.php",
-//   data: {like:l,dislike:d}
-// })
-var l=e.toString();
-  var d=f.toString();
- $.ajax({
-  method: "POST",
-  url: "courselikedislike.php",
-  data: {like:l,dislike:d,pl:a,pd:b}
-})
-   
- 
-   }
+  
 
+   }
     </script>
   </body>
 </html>

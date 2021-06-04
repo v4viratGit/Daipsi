@@ -1,7 +1,6 @@
 <?php
     require 'dbconnection.php';
 ?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -40,39 +39,38 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
-                            <form>
+                            <form action="signup-erp.php" method="POST" enctype="multipart/form-data">
                             <div class="modal-body">
-                                    <div class="mb-3">                                
+                                    <div class="mb-3">  
                                       <label for="first-name" class="col-form-label">First Name:</label>
-                                      <input type="text" class="form-control" id="first-name">
+                                      <input name="first-name" type="text" class="form-control" id="first-name">
                                       <label for="last-name" class="col-form-label">Last Name:</label>
-                                      <input type="text" class="form-control" id="last-name">
+                                      <input name="last-name" type="text" class="form-control" id="last-name">
                                       <label for="full-name" class="col-form-label">Full Name:</label>
-                                      <input type="text" class="form-control" id="full-name">
+                                      <input name="full-name" type="text" class="form-control" id="full-name">
                                       <label for="about" class="col-form-label">About:</label>
-                                      <textarea class="form-control" id="about"></textarea>
+                                      <textarea name="about" class="form-control" id="about"></textarea>
                                       <label for="location" class="col-form-label">Location:</label>
-                                      <input type="text" class="form-control" id="location">
+                                      <input name="location" type="text" class="form-control" id="location">
                                       <label for="email" class="col-form-label">Email Address:</label>
-                                      <input type="email" class="form-control" id="email">
+                                      <input name="email" type="email" class="form-control" id="email">
                                       <label for="designation" class="col-form-label">Designation:</label>
-                                      <input type="text" class="form-control" id="designation">
+                                      <input name="designation" type="text" class="form-control" id="designation">
                                       <label for="qualification" class="col-form-label">Qualification:</label>
-                                      <input type="text" class="form-control" id="qualification">
-                                      <label for="experiance" class="col-form-label">Experiance:</label>
-                                      <input type="text" class="form-control" id="experiance">
+                                      <input name="qualification" type="text" class="form-control" id="qualification">
+                                      <label for="experience" class="col-form-label">Experience:</label>
+                                      <input name="experience" type="text" class="form-control" id="experience">
                                       <label for="skills" class="col-form-label">Skills:</label>
-                                      <input type="text" class="form-control" id="skills">
+                                      <input name="skills" type="text" class="form-control" id="skills">
                                       <label for="password" class="col-form-label">Password:</label>
-                                      <input type="text" class="form-control" id="password">
-                                      <label for="file-name" class="col-form-label">Upload Image</label>
-                                      <input type="file" class="form-control" id="file-name">                        
-                                        
+                                      <input name="password" type="password" class="form-control" id="password">
+                                      <label for="profile-photo" class="col-form-label">Upload Image:</label>
+                                      <input type="file" name="profile-photo" class="form-control" id="profile-photo">                        
                                     </div>                            
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button name="submit" type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </form>
                         </div>
@@ -91,9 +89,9 @@
             <span>Welcome to the DAIPSI</span>
         </div>
         <div class="form-content">
-            <form action="#">
-            <input type="email" placeholder="Type Your Mail" required><br>
-            <input type="password" placeholder="Type Your Password" required><br>
+            <form action="login-erp-script.php" method="POST">
+            <input name="email" type="email" placeholder="Type Your Mail" required><br>
+            <input name="password" type="password" placeholder="Type Your Password" required><br>
             <button type="submit">GET STARTED</button>
             </form>
         </div>

@@ -88,12 +88,7 @@
             echo "<h1>$foundNum results found for your query $search</h1>";
             $getQuery=mysqli_query($con,$sql);
             while($runRows=mysqli_fetch_array($getQuery)){
-                echo "<form action='answer.php' method='GET'>"
-                      .$runRows['question'].
-                      "<input type='hidden' name='question' value='".$runRows['question']."'>
-                      <input type='hidden' name='course' value=$course>
-                      <button type='submit'>Answer</button>
-                      </form>";   
+                echo $runRows['question'];   
             }
 
         }

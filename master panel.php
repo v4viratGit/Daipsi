@@ -374,31 +374,31 @@ $result2 = mysqli_query($con, $sqll);
                 <p>Student Count : 530</p>
             </div>
         </div>
-        <table>
-            <tr>
-                <th>course_id</th>
-                <th>email</th>
-                <th>username</th>
-                <th>course</th>
-            </tr>
-            <!-- PHP CODE TO FETCH DATA FROM ROWS-->
-            <?php   // LOOP TILL END OF DATA 
+       
+      
+        <?php   // LOOP TILL END OF DATA 
                 while($rows = mysqli_fetch_assoc($result1))
                 {
              ?>
-            <tr>
-                <!--FETCHING DATA FROM EACH 
-                    ROW OF EVERY COLUMN-->
-                <td><?php echo $rows["course_id"];?></td>
-                <td><?php echo $rows["email"];?></td>
-                <td><?php echo $rows["username"];?></td>
-                <td><?php echo $rows["course"];?></td>
-    
-            </tr>
-            <?php
-                }
-             ?>
-        </table>
+        
+                <div class="col-lg-12 card_box">
+               
+                    <div class="card student_name_card">
+                   
+                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
+                        <?php echo $rows["username"];?> </p>
+                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
+                        <?php echo $rows["course"];?></p>
+                       
+                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
+                            1 Months</p>  
+                             
+                    </div>
+                  
+                </div>
+                <?php
+                           }
+                          ?> 
         <div class="lastarea"></div>
     </section>
 
@@ -743,31 +743,24 @@ $result2 = mysqli_query($con, $sqll);
                 <p>Student Count : 530</p>
             </div>
         </div>
-        <table>
-            <tr>
-                <th>full name</th>
-                <th>email</th>
-                <th>designation</th>
-                <th>experiance</th>
-            </tr>
-            <!-- PHP CODE TO FETCH DATA FROM ROWS-->
-            <?php   // LOOP TILL END OF DATA 
+       
+        <?php   // LOOP TILL END OF DATA 
                 while($rows = mysqli_fetch_assoc($result2))
                 {
              ?>
-            <tr>
-                <!--FETCHING DATA FROM EACH 
-                    ROW OF EVERY COLUMN-->
-                <td><?php echo $rows["full_name"];?></td>
-                <td><?php echo $rows["email"];?></td>
-                <td><?php echo $rows["designation"];?></td>
-                <td><?php echo $rows["experience"];?></td>
-    
-            </tr>
-            <?php
+        <div class="col-lg-12 card_box">
+                    <div class="card student_name_card">
+                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
+                        <?php echo $rows["full_name"];?>     </p>
+                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png" alt="img">
+                        <?php echo $rows["designation"];?>  </p>
+                        <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_calender_img.png" alt="img">
+                        <?php echo $rows["experience"];?>Years  </p>
+                    </div>
+                </div>
+                <?php
                 }
              ?>
-        </table>
         <div class="lastarea"></div>
     </section>
 

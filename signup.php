@@ -63,24 +63,15 @@ if(isset($_POST['signup']))
         exit();
 
     }  
-    $p=" ";
-    $insert_user1="insert into users (name,email,userpass,contact) VALUE ('$user_name','$user_email','$user_pass','$user_contact')";
-    $insert_user2="insert into profil (email,fname,lname,skills,qualification,usename,about,photo) VALUE ('$user_email','$p','$p','$p','$p','$p','$p','$p')";
-    if(mysqli_query($con,$insert_user1) && mysqli_query($con,$insert_user2))  
+    $insert_user1="insert into users (name,email,password,contact) VALUE ('$user_name','$user_email','$user_pass','$user_contact')";
+    //$insert_user2="insert into likedislike (email) VALUE ('$user_email')";
+    if(mysqli_query($con,$insert_user1))  
     {  
-        
         $_SESSION['user_id'] = $user_email;
         $_SESSION['email'] = $user_email;
-<<<<<<< HEAD
-echo '<script>';
-echo 'alert("signup sucess");';
-//echo 'window.location.href = "index.php";';
-echo '</script>';
-=======
         echo '<script>';
         echo 'window.location.href = "index.php";';
         echo '</script>';
->>>>>>> a0c555e11f1d4def0a2bcb5e8d8f450702b301ee
     }  
   
 }

@@ -13,4 +13,7 @@
             echo '</script>';
             header('location: index.php');
         }
+        else{
+            echo 'alert("try again");'; 
+        }
    ?>

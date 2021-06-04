@@ -8,7 +8,7 @@
 
 
 
-<form action="index.php" method="POST">
+<form action="index.html" method="POST">
 <script
     src="https://checkout.razorpay.com/v1/checkout.js"
     data-key="<?php echo $apiKey; ?>" // Enter the Test API Key ID generated from Dashboard → Settings → API Keys
