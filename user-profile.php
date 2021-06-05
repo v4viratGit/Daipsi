@@ -550,7 +550,10 @@
               <div class="user-personal-content">
                 <h2>Skills</h2>
                 <div class="content-line"></div>
+                
                 <h2><?php echo $_SESSION['skill'];?></h2>
+                
+                
             </div>
             <div class="user-personal-content">
                 <h2>Qualification</h2>

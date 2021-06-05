@@ -9,32 +9,38 @@
     {
     $sql = "SELECT * FROM coursepurchase WHERE course_id=1 OR course_id=2";
 $result1 = mysqli_query($con, $sql);
-
+$querie="SELECT * FROM question_queries WHERE course='jee' OR course='neet'";
+$que= mysqli_query($con, $querie);
     }
     if($d=="chemistry")
     {
     $sql = "SELECT * FROM coursepurchase WHERE course_id=1 OR course_id=2";
 $result1 = mysqli_query($con, $sql);
-
+$querie="SELECT * FROM question_queries WHERE course='jee' OR course='neet'";
+$que= mysqli_query($con, $querie);
     }
     if($d=="botany")
     {
     $sql = "SELECT * FROM coursepurchase WHERE course_id=1";
 $result1 = mysqli_query($con, $sql);
-
+$querie="SELECT * FROM question_queries WHERE  course='neet'";
+$que= mysqli_query($con, $querie);
     }
     if($d=="zoology")
     {
     $sql = "SELECT * FROM coursepurchase WHERE course_id=1";
 $result1 = mysqli_query($con, $sql);
-
+$querie="SELECT * FROM question_queries WHERE  course='neet'";
+$que= mysqli_query($con, $querie);
     }
     if($d=="maths")
     {
     $sql = "SELECT * FROM coursepurchase WHERE course_id=2";
 $result1 = mysqli_query($con, $sql);
-
+$querie="SELECT * FROM question_queries WHERE course='jee' OR course='neet'";
+$que= mysqli_query($con, $querie);
     }
+    
 mysqli_close($con);
 
 ?>
@@ -552,12 +558,17 @@ mysqli_close($con);
                 <p>Student Count : 530</p>
 
             </div>
+            <?php   // LOOP TILL END OF DATA 
+           
+                while($rows = mysqli_fetch_assoc($que) )
+                {     
+             ?>  
             <div class="">
                 <div class="col-md-12 question_box">
                     <div class="card question_answer_card">
                         <div class="question_and_name">
-                            <p class="text-white fw-bold question">Question:How to get the date from the question and
-                                solve it?
+                            <p class="text-white fw-bold question">
+                            <?php echo $rows["question"];?>
                             </p>
                             <div class="name_and_img ">
                                 <p class="text-white fww-bold name">Abhishek Kushwaha
@@ -566,15 +577,20 @@ mysqli_close($con);
                             </div>
                         </div>
                         <div class="input_and_submit">
-                            <form action="#">
-                            <input type="text" placeholder="Answer">
-                            <button class="btn ">Submit</button>
+                            <form action="answersubmission.php" method="POST">
+                            <input type="hidden" name="que" value="<?php echo $rows["question"];?>">
+                            <input type="hidden" name="course" value="<?php echo $rows["course"];?>">
+                            <input type="text" placeholder="Answer" name="answer">
+                            <button class="btn " type="sumbit" name="teacher">Submit</button>
                         </form>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-12 question_box">
+                <?php
+                
+                }
+             ?>
+                <!-- <div class="col-md-12 question_box">
                     <div class="card question_answer_card">
                         <div class="question_and_name">
                             <p class="text-white fw-bold question">Question:How to get the date from the question and
@@ -614,10 +630,10 @@ mysqli_close($con);
                             </form>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- questions jo hidden hai -->
-                <div class="col-md-12 question_box">
+                <!-- <div class="col-md-12 question_box">
                     <div class="card question_answer_card">
                         <div class="question_and_name">
                             <p class="text-white fw-bold question">Question:How to get the date from the question and
@@ -678,7 +694,7 @@ mysqli_close($con);
                             </form>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- over -->
 
