@@ -9,35 +9,35 @@
     {
     $sql = "SELECT * FROM coursepurchase WHERE course_id=1 OR course_id=2";
 $result1 = mysqli_query($con, $sql);
-$querie="SELECT * FROM question_queries WHERE course='jee' OR course='neet'";
+$querie="SELECT * FROM jee_queries,neet_queries";
 $que= mysqli_query($con, $querie);
     }
     if($d=="chemistry")
     {
     $sql = "SELECT * FROM coursepurchase WHERE course_id=1 OR course_id=2";
 $result1 = mysqli_query($con, $sql);
-$querie="SELECT * FROM question_queries WHERE course='jee' OR course='neet'";
+$querie="SELECT * FROM jee_queries,neet_queries";
 $que= mysqli_query($con, $querie);
     }
     if($d=="botany")
     {
     $sql = "SELECT * FROM coursepurchase WHERE course_id=1";
 $result1 = mysqli_query($con, $sql);
-$querie="SELECT * FROM question_queries WHERE  course='neet'";
+$querie="SELECT * FROM neet_queries";
 $que= mysqli_query($con, $querie);
     }
     if($d=="zoology")
     {
     $sql = "SELECT * FROM coursepurchase WHERE course_id=1";
 $result1 = mysqli_query($con, $sql);
-$querie="SELECT * FROM question_queries WHERE  course='neet'";
+$querie="SELECT * FROM neet_queries";
 $que= mysqli_query($con, $querie);
     }
     if($d=="maths")
     {
     $sql = "SELECT * FROM coursepurchase WHERE course_id=2";
 $result1 = mysqli_query($con, $sql);
-$querie="SELECT * FROM question_queries WHERE course='jee' OR course='neet'";
+$querie="SELECT * FROM jee_queries";
 $que= mysqli_query($con, $querie);
     }
     
