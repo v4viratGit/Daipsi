@@ -232,7 +232,7 @@
                         <label for="message-text" class="col-form-label">Password:</label>
                         <input type="password" class="form-control" id="password" name="pass">
                       </div>
-                      <input type="submit" class="form-control submit-btn" value="Submit">
+                      <input type="submit" class="form-control submit-btn" value="Submit" name="user">
                     </form>
                                         </div>
                                         <div class="modal-footer">
@@ -312,7 +312,8 @@
     <!-- Navbar End -->
 
     <!-- User Profile Start -->
-
+<?php if($_SESSION['coun']=="a"){
+    ?>
     <div class="user-profile">
         <div class="user-profile-direction">
             <h1>Profile</h1>
@@ -566,7 +567,251 @@
     </div>
 
     <!-- User Profile End -->
+<?php }
+elseif(!isset($_SESSION['coun']))?>
+<!-- User Profile start -->
+<div class="user-profile">
+        <div class="user-profile-direction">
+            <h1>Profile</h1>
+            <span>Daipsi <i class="fas fa-caret-right"></i> Profile</span>
+        </div>
+        <div class="user-profile-common-details">
+            <div class="user-img">
+                <img src="images/user profile.jpg" alt="">
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#upload-image"
+                data-bs-whatever="@mdo"><i class="fas fa-camera"></i></button>
+            <div class="modal fade" id="upload-image" tabindex="-1" aria-labelledby="upload-image"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="upload-image">Upload Image</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                          <form>
+                        <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="file-name" class="col-form-label">Upload Image</label>
+                                    <input type="file" class="form-control" id="file-name">
+                                </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="user-name">
+                <span>Mr. Faizu</span>
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#upload-name"
+                data-bs-whatever="@mdo"><i class="fas fa-edit"></i></button>
+            <div class="modal fade" id="upload-name" tabindex="-1" aria-labelledby="upload-name"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="upload-name">Update Name</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <form>
+                        <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="update-name" class="col-form-label">Neme:</label>
+                                    <input type="text" class="form-control" id="update-name">
+                                </div>                           
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="user-about">
+                <span>About</span><br>
+                <div class="about-content">
+                    <p>Student_About</p>
+                </div>
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#edit-about"
+                data-bs-whatever="@mdo"><i class="fas fa-edit"></i></button>
+            <div class="modal fade" id="edit-about" tabindex="-1" aria-labelledby="edit-about"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="edit-about">Edit About</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <form>
+                        <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="edit-about" class="col-form-label">Edit About:</label>
+                                    <textarea class="form-control" id="edit-about"></textarea>
+                                </div>                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="change-password">
+                <button type="button" class="btn textcolor_white_textSize_up" data-bs-toggle="modal" data-bs-target="#change-password"
+                    data-bs-whatever="@mdo">Change Password</button>
+                <div class="modal fade" id="change-password" tabindex="-1" aria-labelledby="change-password"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="change-password">Update Password</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <form>
+                            <div class="modal-body">                               
+                                    <div class="mb-3">
+                                        <label for="change-password" class="col-form-label">Current Password:</label>
+                                        <input type="text" class="form-control" id="change-password">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="new-password" class="col-form-label">New Password:</label>
+                                        <input type="text" class="form-control" id="new-password">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="check-password" class="col-form-label">Confirm New Password:</label>
+                                        <input type="text" class="form-control" id="check-password">
+                                    </div>                                
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="textcolor_white_textSize_up">Logout</a>
+        </div>
+        <div class="user-profile-main-details">
+            <div class="user-personal-information">
+                <div class="main-heading">
+                    <h1>Personal Information</h1>
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#edit-Personal-info"
+                    data-bs-whatever="@mdo"><i class="fas fa-edit"></i></button>
+                <div class="modal fade" id="edit-Personal-info" tabindex="-1" aria-labelledby="edit-Personal-info"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="edit-Personal-info">Edit Personal Info</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <form>
+                            <div class="modal-body">
+                                    <div class="mb-3">
+                                        <label for="first-name" class="col-form-label">First Name:</label>
+                                        <input type="text" class="form-control" id="first-name">
+                                        <label for="last-name" class="col-form-label">Last Name:</label>
+                                        <input type="text" class="form-control" id="last-name">
+                                    </div>                            
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="user-line"></div>
+                <div class="user-personal-data">
+                  <div class="user-personal-content">
+                      <h2>First Name</h2>
+                      <div class="content-line"></div>
+                      <h2 class="content-left">Student_Name</h2>
+                  </div>
+                  <div class="user-personal-content">
+                    <h2>Last Name</h2>
+                    <div class="content-line"></div>
+                    <h2>---</h2>
+                </div>
+                <div class="user-personal-content">
+                    <h2>Email Address</h2>
+                    <div class="content-line"></div>
+                    <h2>student_@gamil.com</h2>
+                </div>
+            </div>
+        </div>
+        <div class="user-personal-information">
+            <div class="main-heading">
+                <h1>Professional Information</h1>
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#edit-professional-info"
+                data-bs-whatever="@mdo"><i class="fas fa-edit"></i></button>
+            <div class="modal fade" id="edit-professional-info" tabindex="-1" aria-labelledby="edit-professional-info"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="edit-professional-info">Edit Professional Info</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <form>
+                        <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="skills" class="col-form-label">Skills:</label>
+                                    <input type="text" class="form-control" id="skills">
+                                    <label for="qualification" class="col-form-label">Qualification:</label>
+                                    <input type="text" class="form-control" id="qualification">
+                                </div>                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="user-line"></div>
+            <div class="user-personal-data">
+              <div class="user-personal-content">
+                  <h2>Designation</h2>
+                  <div class="content-line"></div>
+                  <h2>Student</h2>
+              </div>
+              <div class="user-personal-content">
+                <h2>Skills</h2>
+                <div class="content-line"></div>
+                <h2>---</h2>
+            </div>
+            <div class="user-personal-content">
+                <h2>Qualification</h2>
+                <div class="content-line"></div>
+                <h2>10th Pass</h2>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
 
+ <!-- User Profile End -->
+ <?php}?>
     <!-- My Courses Start -->
 
     <div class="common">

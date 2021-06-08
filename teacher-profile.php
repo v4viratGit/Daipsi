@@ -11,6 +11,8 @@
 $result1 = mysqli_query($con, $sql);
 $querie="SELECT * FROM question_queries WHERE course='jee' OR course='neet'";
 $que= mysqli_query($con, $querie);
+$mentor="SELECT * FROM personalmentorship WHERE course='physics' AND id=1";
+$ment=mysqli_query($con, $mentor);
     }
     if($d=="chemistry")
     {
@@ -18,6 +20,8 @@ $que= mysqli_query($con, $querie);
 $result1 = mysqli_query($con, $sql);
 $querie="SELECT * FROM question_queries WHERE course='jee' OR course='neet'";
 $que= mysqli_query($con, $querie);
+$mentor="SELECT * FROM personalmentorship WHERE course='chemistry' AND id=1";
+$ment=mysqli_query($con, $mentor);
     }
     if($d=="botany")
     {
@@ -25,6 +29,8 @@ $que= mysqli_query($con, $querie);
 $result1 = mysqli_query($con, $sql);
 $querie="SELECT * FROM question_queries WHERE  course='neet'";
 $que= mysqli_query($con, $querie);
+$mentor="SELECT * FROM personalmentorship WHERE course='botany' AND id=1";
+$ment=mysqli_query($con, $mentor);
     }
     if($d=="zoology")
     {
@@ -32,6 +38,8 @@ $que= mysqli_query($con, $querie);
 $result1 = mysqli_query($con, $sql);
 $querie="SELECT * FROM question_queries WHERE  course='neet'";
 $que= mysqli_query($con, $querie);
+$mentor="SELECT * FROM personalmentorship WHERE course='zoology' AND id=1";
+$ment=mysqli_query($con, $mentor);
     }
     if($d=="maths")
     {
@@ -39,6 +47,8 @@ $que= mysqli_query($con, $querie);
 $result1 = mysqli_query($con, $sql);
 $querie="SELECT * FROM question_queries WHERE course='jee' OR course='neet'";
 $que= mysqli_query($con, $querie);
+$mentor="SELECT * FROM personalmentorship WHERE course='maths' AND id=1";
+$ment=mysqli_query($con, $mentor);
     }
     
 mysqli_close($con);
@@ -718,34 +728,40 @@ mysqli_close($con);
                 <p>Filter by: <span>None</span></p>
                 <p>Student Count : 530</p>
             </div>
+          <?php  while($rows = mysqli_fetch_assoc($ment) )
+                {     
+             ?>  
             <div class="">
                 <div class="col-md-12 schedule_box">
                     <div class="card time_date_card">
                         <div class="name_and_subject">
                             <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
-                                Abhishek Kushwaha</p>
+                                <?php echo $rows["fname"];?></p>
                             <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_course_img.png"
                                     alt="img">
-                                Normal Course JEE</p>
-                            <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_book_img.png" alt="img">
-                                Maths</p>
+                                <?php echo $rows["course"];?></p>
+                            <!-- <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_book_img.png" alt="img">
+                                Maths</p> -->
                         </div>
                         <div class="timeDate_and_submit">
-                            <form action="#">
+                            <form action="mentorship.php" method="POST">
                             <div class="mb-3">
                                 <label for="time" class="form-label">Time</label>
-                                <input class="form-control" type="time" id="time">
+                                <input class="form-control" type="time" id="time" name="time">
                               </div>
                               <div class="mb-3">
                                 <label for="date" class="form-label">Date</label>
-                                <input class="form-control" type="date" id="date">
+                                <input class="form-control" type="date" id="date" name="date">
+                                <input type="hidden" name="email" value="<?php echo $rows["email"];?>">
+                                <input type="hidden" name="course" value="<?php echo $rows["course"];?>">
                               </div>
-                              <button type="submit" class="btn">Submit</button>
+                              <button type="submit" class="btn" name="teacher">Submit</button>
                             </form>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12 schedule_box">
+                <?php }?>
+                <!-- <div class="col-md-12 schedule_box">
                     <div class="card time_date_card">
                         <div class="name_and_subject">
                             <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
@@ -796,9 +812,9 @@ mysqli_close($con);
                                 </form>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- card jo hidden hai -->
-                <div class="col-md-12 schedule_box">
+                <!-- <div class="col-md-12 schedule_box">
                     <div class="card time_date_card">
                         <div class="name_and_subject">
                             <p class=" font-Mukta  fw-bold text-white "> <img src="images/student_img.png" alt="img">
@@ -875,7 +891,7 @@ mysqli_close($con);
                                 </form>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- over -->
                 <div class="viewMoreDiv d-flex justify-content-center">
                     <button type="button" class="view_more_schedule btn  text-white fw-bold ">View More</button>

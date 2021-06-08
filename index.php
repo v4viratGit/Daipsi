@@ -20,7 +20,11 @@
     } else {
       echo "0 results";
     }
-
+    $query = "SELECT * FROM teachers LIMIT 20";
+    $result = mysqli_query($con, $query);
+    $student="SELECT purchases.course_name, users.name,users.profilephoto FROM purchases 
+    INNER JOIN users ON purchases.users_email=users.email ORDER BY purchases.id DESC LIMIT 20";
+    $result1=mysqli_query($con, $student);
 ?>
 <!doctype html>
 <html lang="en">
@@ -97,7 +101,7 @@
                         <label for="message-text" class="col-form-label">Password:</label>
                         <input type="password" class="form-control" id="password" name="pass">
                       </div>
-                      <input type="submit" class="form-control submit-btn" value="Submit">
+                      <input type="submit" class="form-control submit-btn" value="Submit" name="index">
                     </form>
                   </div>
           <div class="modal-footer">
@@ -538,14 +542,18 @@
         Facere quaerat eum laudantium nam velit delectus rerum similique ipsa? </p>
     </div>
     <section class="common-slider recently-joined-students">
+    <?php while($rows = mysqli_fetch_assoc($result1))
+                {
+             ?>
       <div class="slide">
-        <img src="images/recently joined student (1).png">
-        <h1>Mansi Prajapati</h1>
+        <img src="<?php echo $rows["profilephoto"];?>">
+        <h1><?php echo $rows["name"];?></h1>
         <h2>Student</h2>
-        <h3>Crash Course JEE</h3>
+        <h3>Crash Course<?php echo $rows["course_name"];?></h3>
         <h4>All India Rank-08</h4>
       </div>
-      <div class="slide">
+      <?php }?>
+      <!-- <div class="slide">
         <img src="images/recently joined student (2).png">
         <h1>Mohd Moin</h1>
         <h2>Student</h2>
@@ -579,7 +587,7 @@
         <h2>Student</h2>
         <h3>Crash Course JEE</h3>
         <h4>All India Rank-21</h4>
-      </div>
+      </div> -->
     </section>
   </div>
 
@@ -596,21 +604,26 @@
       Facere quaerat eum laudantium nam velit delectus rerum similique ipsa? </p>
   </div>
   <section class="common-slider our-teachers">
+  <?php while($rows = mysqli_fetch_assoc($result))
+                {
+             ?>
     <div class="slide">
-      <img src="images/teacher (2).png">
-        <h1>Mansi Prajapati</h1>
+      <img src="<?php echo $rows["profile_photo"];?>">
+        <h1><?php echo $rows["full_name"];?></h1>
         <h2>Teachers</h2>
-        <h3>Crash Course JEE</h3>
+        <h3><?php echo $rows["designation"];?></h3>
         <h4>All India Rank-08</h4>
     </div>
-    <div class="slide">
+    <?php }?>
+    
+     <div class="slide">
       <img src="images/teacher (1).png">
       <h1>Mukesh Kumar</h1>
       <h2>Teachers</h2>
       <h3>Crash Course NEET</h3>
       <h4>All India Rank-18</h4>
     </div>
-    <div class="slide">
+   <!-- <div class="slide">
       <img src="images/teacher (2).png">
         <h1>Manisha Gupta</h1>
         <h2>Teachers</h2>
@@ -637,7 +650,7 @@
       <h2>Teachers</h2>
       <h3>Crash Course CS</h3>
       <h4>All India Rank-16</h4>
-    </div>
+    </div> -->
   </section>
 </div>
 

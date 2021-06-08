@@ -9,5 +9,10 @@ $_SESSION['name']=$p;
 $_SESSION['about']=$p;
 $_SESSION['email']=$p;
 $_SESSION['photo']=$p;
-echo "logoutsucess";
+//$_SESSION['coun']=" ";
+echo '<script>';
+        echo 'alert("logout success");';  
+        echo 'window.location.href = "user-profile.php";';
+        echo '</script>';
+        exit();
 ?>
