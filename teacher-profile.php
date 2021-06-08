@@ -9,7 +9,7 @@
     {
     $sql = "SELECT * FROM coursepurchase WHERE course_id=1 OR course_id=2";
 $result1 = mysqli_query($con, $sql);
-$querie="SELECT * FROM question_queries WHERE course='jee' OR course='neet'";
+$querie="SELECT * FROM jee_queries,neet_queries";
 $que= mysqli_query($con, $querie);
 $mentor="SELECT * FROM personalmentorship WHERE course='physics' AND id=1";
 $ment=mysqli_query($con, $mentor);
@@ -18,7 +18,7 @@ $ment=mysqli_query($con, $mentor);
     {
     $sql = "SELECT * FROM coursepurchase WHERE course_id=1 OR course_id=2";
 $result1 = mysqli_query($con, $sql);
-$querie="SELECT * FROM question_queries WHERE course='jee' OR course='neet'";
+$querie="SELECT * FROM jee_queries,neet_queries";
 $que= mysqli_query($con, $querie);
 $mentor="SELECT * FROM personalmentorship WHERE course='chemistry' AND id=1";
 $ment=mysqli_query($con, $mentor);
@@ -27,7 +27,7 @@ $ment=mysqli_query($con, $mentor);
     {
     $sql = "SELECT * FROM coursepurchase WHERE course_id=1";
 $result1 = mysqli_query($con, $sql);
-$querie="SELECT * FROM question_queries WHERE  course='neet'";
+$querie="SELECT * FROM neet_queries";
 $que= mysqli_query($con, $querie);
 $mentor="SELECT * FROM personalmentorship WHERE course='botany' AND id=1";
 $ment=mysqli_query($con, $mentor);
@@ -36,7 +36,7 @@ $ment=mysqli_query($con, $mentor);
     {
     $sql = "SELECT * FROM coursepurchase WHERE course_id=1";
 $result1 = mysqli_query($con, $sql);
-$querie="SELECT * FROM question_queries WHERE  course='neet'";
+$querie="SELECT * FROM neet_queries";
 $que= mysqli_query($con, $querie);
 $mentor="SELECT * FROM personalmentorship WHERE course='zoology' AND id=1";
 $ment=mysqli_query($con, $mentor);
@@ -45,7 +45,7 @@ $ment=mysqli_query($con, $mentor);
     {
     $sql = "SELECT * FROM coursepurchase WHERE course_id=2";
 $result1 = mysqli_query($con, $sql);
-$querie="SELECT * FROM question_queries WHERE course='jee' OR course='neet'";
+$querie="SELECT * FROM jee_queries";
 $que= mysqli_query($con, $querie);
 $mentor="SELECT * FROM personalmentorship WHERE course='maths' AND id=1";
 $ment=mysqli_query($con, $mentor);

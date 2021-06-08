@@ -5,10 +5,10 @@
  $que=$_POST['que'];
  $answer=$_POST['answer'];
  $course=$_POST['course'];
- $sql = "INSERT INTO question_answer (course,question,answer) VALUE ('$course', '$que', '$answer')";
+ $sql = "INSERT INTO $course (question,answer) VALUE ('$que', '$answer')";
  if (mysqli_query($con, $sql)) {
-           
-  $sqll = "DELETE FROM question_queries WHERE course='$course' AND question='$que'";   
+  $table=$course."_queries";
+  $sqll = "DELETE FROM $table WHERE question='$que'";   
   if (mysqli_query($con, $sqll)) {
     echo ("<script LANGUAGE='JavaScript'>
     window.alert('Succesfully submitted');
