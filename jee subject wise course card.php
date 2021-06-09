@@ -165,13 +165,13 @@
                     <option value="1">JEE Mains</option>
                     <option value="2">JEE Advanced</option>      
                     <optgroup label="JEE Mains Subjects">
-                    <option value="Mathematics">Mathematics</option>   
-                    <option value="Chemistry">Chemistry</option>     
-                    <option value="Physics">Physics</option>
+                    <option value="mMathematics">Mathematics</option>   
+                    <option value="mChemistry">Chemistry</option>     
+                    <option value="mPhysics">Physics</option>
                     <optgroup label="JEE Advanced Subjects">
-                    <option value="6">Mathematics</option>   
-                    <option value="7">Chemistry</option>     
-                    <option value="8">Physics</option>
+                    <option value="aMathematics">Mathematics</option>   
+                    <option value="aChemistry">Chemistry</option>     
+                    <option value="aPhysics">Physics</option>
                 </select>
                 <button name="subjectSelected" type="submit"></button>
               </form>
@@ -187,6 +187,8 @@
             <!-- Subject 1 Course Price Cards Start -->
             <div class="subjects" id="subject">
             <?php
+                if(isset($_POST['subject']))
+                {
                     $subject = $_POST['subject'];
                     $query = "SELECT * FROM cards WHERE subname='$subject'";
                     $result = mysqli_query($con, $query) or die(mysqli_error($con));
@@ -214,7 +216,8 @@
                     </div>
                 </div>
            
-<?php }?> </div>
+<?php  } }?> 
+</div>
                 <!-- <div class="column">
                     <div class="card-body">
                         <div class="card-month">
