@@ -59,7 +59,7 @@
             
             // Set search input value on click of result item
             $(document).on("click", ".result p", function(){
-                $(this).parents(".search-box").find('input[type="search"]').val($(this).text());
+                $(this).parents(".search-bar").find('input[type="search"]').val($(this).text());
                 $(this).parent(".result").empty();
             });
         });
