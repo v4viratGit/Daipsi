@@ -39,6 +39,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
     <title>Daipsi / Home Page</title>
+
+    <!-- Script for live search -->
+    <script>
+        $(document).ready(function(){
+            $('.search-bar input[type="search"]').on("keyup input", function(){
+                /* Get input value on change */
+                var inputVal = $(this).val();
+                var resultDropdown = $(this).siblings(".result");
+                if(inputVal.length){
+                    $.get("backend-search.php", {term: inputVal}).done(function(data){
+                        // Display the returned data in browser
+                        resultDropdown.html(data);
+                    });
+                } else{
+                    resultDropdown.empty();
+                }
+            });
+            
+            // Set search input value on click of result item
+            $(document).on("click", ".result p", function(){
+                $(this).parents(".search-box").find('input[type="search"]').val($(this).text());
+                $(this).parent(".result").empty();
+            });
+        });
+    </script>
   </head>
   <body>
 
@@ -156,17 +181,18 @@
         <nav class="navbar">
           <div class="container-fluid">
             <span>Updated Earth</span>
-            <form action="search result.php" method="GET" class="search-bar">
+            <form class="search-bar" action="search result.php" method="GET" class="search-bar">
               <input type="radio" id="engineering" class="radio" name="course" value="JEE">
               <label for="engineering"> Engineering </label>
               <input type="radio" id="medical" class="radio" name="course" value="NEET">
               <label for="medical"> Medical </label>
-              <input type="radio" id="commerce" class="radio" name="course" value="COMMERCE>
+              <input type="radio" id="commerce" class="radio" name="course" value="COMMERCE">
               <label for="commerce"> Commerce </label>
               <input type="radio" id="government-exams" class="radio" name="course" value="UPSC">
               <label for="government-exams"> Government Exams </label> <br>
               <input name="search" type="search" class=" form-control me-2 search-engine" placeholder="Get Your Answer Quickly" aria-label="Search">
-              <button class="btn" type="submit">Search</button>       
+              <button class="btn" type="submit">Search</button>  
+              <div class="result" style="color:white; font-size:20px; z-index:100; position: fixed;"></div>     
           </form>
             <a href="index.html"><img src="images/logo.png"></a>
           </div>
