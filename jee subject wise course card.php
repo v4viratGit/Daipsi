@@ -161,7 +161,15 @@
             <p>Get your favorite Plan at affordable Price.</p>
             <form id="subjectForm" action="jee subject wise course card.php" method="post">
                 <select name="subject" class="h-100 row align-items-center" onchange='submitForm();' required>
-                    <option value="0">Click here to select your choice:</option>
+                    <option value="0">
+                    <?php
+                    if(!(isset($_POST['subject'])))
+                    {?>
+                    Click here to select your choice:
+                    <?php }else{
+                        echo $_POST['subject'];
+                    }?>
+                    </option>
                     <option value="1">JEE Mains</option>
                     <option value="2">JEE Advanced</option>      
                     <optgroup label="JEE Mains Subjects">
