@@ -64,8 +64,16 @@
             });
         });
     </script>
+    <script>
+        function showSuggestions() {
+          document.getElementById("suggestions").style.display = "block";
+        }
+        function hideSuggestions(){
+          document.getElementById("suggestions").style.display = "none";
+        }
+    </script>
   </head>
-  <body>
+  <body onscroll="hideSuggestions()">
 
     <!-- Header Part Start -->
 
@@ -182,17 +190,24 @@
           <div class="container-fluid">
             <span>Updated Earth</span>
             <form class="search-bar" action="search result.php" method="GET" class="search-bar">
-              <input type="radio" id="engineering" class="radio" name="course" value="JEE">
+              <input type="radio" id="engineering" class="radio" name="course" value="JEE" required>
               <label for="engineering"> Engineering </label>
-              <input type="radio" id="medical" class="radio" name="course" value="NEET">
+              <input type="radio" id="medical" class="radio" name="course" value="NEET" required>
               <label for="medical"> Medical </label>
-              <input type="radio" id="commerce" class="radio" name="course" value="COMMERCE">
+              <input type="radio" id="commerce" class="radio" name="course" value="COMMERCE" required>
               <label for="commerce"> Commerce </label>
-              <input type="radio" id="government-exams" class="radio" name="course" value="UPSC">
+              <input type="radio" id="government-exams" class="radio" name="course" value="UPSC" required>
               <label for="government-exams"> Government Exams </label> <br>
-              <input name="search" type="search" class=" form-control me-2 search-engine" placeholder="Get Your Answer Quickly" aria-label="Search">
+              <input name="search" type="search" class=" form-control me-2 search-engine" placeholder="Get Your Answer Quickly" aria-label="Search" oninput="showSuggestions()" required>
               <button class="btn" type="submit">Search</button>  
-              <div class="result" style="color:white; font-size:20px; z-index:100; position: fixed;"></div>     
+              <div id="suggestions" class="result" style="color:white; font-size:20px; z-index:100; position: fixed; background-color: rebeccapurple;
+              height: auto;
+              padding: 2rem;
+              background: #45338b;
+              border-radius: 3rem;
+              margin: auto;
+              width: 53%;
+              display: none;"></div>     
           </form>
             <a href="index.html"><img src="images/logo.png"></a>
           </div>
