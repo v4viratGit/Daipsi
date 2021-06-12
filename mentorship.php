@@ -5,8 +5,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['send']))
 $fname=$_POST['fname'];
 $email=$_POST['email'];
 $message=$_POST['message'];
-$opt=$_POST['optradio'];
+//$opt=$_POST['optradio'];
+$course=$_POST['course'];
+$subject=$_POST['category'];
+$purchase_course="SELECT course_name FROM purchases WHERE course_name='$course' AND users_email='$email'";
+$purchase_subject="SELECT course_name FROM purchases WHERE course_name='$subject' AND users_email='$email'";
 $id=1;
+$result1 = mysqli_query($con, $purchase_course);
+$result2 = mysqli_query($con, $purchase_subject);
+
 if($email!=$_SESSION['email'])
 {
     echo '<script>';
@@ -14,9 +21,9 @@ if($email!=$_SESSION['email'])
         echo 'window.location.href = "index.php";';
         echo '</script>';
         exit();
-}else{
-$sql = "INSERT INTO personalmentorship (id,fname,email,message,course)
-VALUES ('$id', '$fname', '$email','$message','$opt')";
+}elseif(mysqli_num_rows($result1) > 0 || mysqli_num_rows($result2) > 0){
+$sql = "INSERT INTO personalmentorship (id,fname,email,mess,course)
+VALUES ('$id', '$fname', '$email','$message','$subject')";
 
 if (mysqli_query($con, $sql)) {
     echo '<script>';
@@ -29,8 +36,18 @@ if (mysqli_query($con, $sql)) {
 }
 
 mysqli_close($conn);
+
+}else{
+  echo '<script>';
+  echo 'alert(" without buying u dont have access to apply for mentorship");';  
+  echo 'window.location.href = "index.php";';
+  echo '</script>';
+  exit();
 }
+
 }
+
+
 elseif($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['teacher']))
 {
 $email=$_POST['email'];

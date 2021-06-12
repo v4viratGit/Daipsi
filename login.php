@@ -20,9 +20,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['index']))
         else
         {
             echo '<script>';
-            echo 'alert("Incorrect email or passowrd")';  
-            echo 'window.location.href = "index.php"';
+            echo 'alert("incorrec email or password");';  
+            echo 'window.location.href = "index.php";';
             echo '</script>';
+            exit();
         }
     }
     elseif($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['user'])){

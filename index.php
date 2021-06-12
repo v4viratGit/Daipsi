@@ -144,7 +144,13 @@
       </div>
     </div>
     <!-- Open first dialog -->
+    <?php   if (isset($_SESSION['email'])) 
+                    {  
+                        ?>
+                        <a>welcome <?php echo $_SESSION['nam'];?></a>
+                        <?php }else{?>
     <a class="btn Login-signup" data-bs-toggle="modal" href="#modal" role="button">Login / SignUp</a>
+    <?php }?>
                 </li>
               </ul>
             </div>
@@ -888,8 +894,10 @@
    var count="<?php echo $_SESSION['coun']; ?>";
    var l,d;
    var a,b,c,d,e,f,g,h,i;
+
    function like(a,b){
-     
+  
+        
      if(a==="al" && b==="ad")
      {
        c=p1l;
@@ -949,17 +957,13 @@
  //if(f>0 && d==1){
   //   f--;
 // }
- g.innerHTML=e;
- h.innerHTML=f;
-
-var data={
-  like:e,
-  dislike:f,
-  pl:a,
-  pd:b
-
-};
-$.post("courselikedislike.php",data);
+var l=e.toString();
+  var d=f.toString();
+ $.ajax({
+  method: "POST",
+  url: "courselikedislike.php",
+  data: {like:l,dislike:d,pl:a,pd:b}
+})
 
    }
 
@@ -1028,7 +1032,13 @@ $.post("courselikedislike.php",data);
  
  g.innerHTML=e;
  h.innerHTML=f;
-  
+ var l=e.toString();
+  var d=f.toString();
+ $.ajax({
+  method: "POST",
+  url: "courselikedislike.php",
+  data: {like:l,dislike:d,pl:a,pd:b}
+})
 
    }
     </script>
