@@ -1,0 +1,53 @@
+<?php
+ $db=mysqli_connect("localhost","root","","daipsi");
+ $msg="";
+ if(isset($_POST['upload'])){
+     $subname=$_POST['subname'];
+     $month=$_POST['month'];
+     $price=$_POST['price'];
+ // $target = "images/".basename($_FILES['image']['name']);
+   // $image = $_FILES['image']['name'];
+    $sql="Insert into cards(subname,month,price) values('$subname','$month','$price')";
+if(mysqli_query($db,$sql)){
+
+//$up=move_uploaded_file($_FILES['image']['tmp_name'],$target);
+
+    $msg="uploaded successfully";
+    }
+    else{
+        $msg="there was problem in uploading";
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            upload in db
+        </title>
+    </head>
+    <body>
+        <div id="content">
+            <form action="form.php" method="post" enctype="multipart/form-data">
+            <centre>
+<div>
+<centre>
+    <input type="text" name="subname" placeholder="Course Name"><br><br>
+    <input type="text" name="month" placeholder="Month"><br><br>
+    <input type="text" name="price" placeholder="Price"><br><br>
+    <label>Course Photo</label>
+    <input type="file" name="image"  required><br><br>
+</centre>
+</div>
+</centre>
+</div>
+
+<div>
+    <input type="submit" name="upload" value="Upload">
+</div>
+            </form>
+
+        </div>
+    </body>
+</html>
