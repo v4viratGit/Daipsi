@@ -22,9 +22,42 @@
     <link href="styleforsearch.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
     <title>Daipsi | Search Result</title>
+     <!-- Script for live search -->
+     <script src="jquery-3.6.0.js"></script>
+     <script>
+        $(document).ready(function(){
+            $('.search-bar input[type="search"]').on("keyup input", function(){
+                /* Get input value on change */
+                var inputVal = $(this).val();
+                var resultDropdown = $(this).siblings(".result");
+                if(inputVal.length){
+                    $.get("backend-search.php", {term: inputVal,term1: $('input[name=course]:checked').val()}).done(function(data){
+                        // Display the returned data in browser
+                        resultDropdown.html(data);
+                    });
+                } else{
+                    resultDropdown.empty();
+                }
+            });
+            
+            // Set search input value on click of result item
+            $(document).on("click", ".result p", function(){
+                $(this).parents(".search-bar").find('input[type="search"]').val($(this).text());
+                $(this).parent(".result").empty();
+            });
+        });
+    </script>
+     <script>
+        function showSuggestions() {
+          document.getElementById("suggestions").style.display = "block";
+        }
+        function hideSuggestions(){
+          document.getElementById("suggestions").style.display = "none";
+        }
+    </script>
 </head>
 
-<body>
+<body onscroll="hideSuggestions()">
 
     <!-- Navbar Start -->
 
@@ -137,23 +170,30 @@
         <nav class="navbar">
             <div class="container-fluid">
                 <span>Updated Earth</span>
-                <form class="search-bar">
-                    <input type="radio" id="engineering" class="radio" name="course-name" value="engineering" required>
-                    <label for="engineering"> Engineering </label>
-                    <input type="radio" id="medical" class="radio" name="course-name" value="medical">
-                    <label for="medical"> Medical </label>
-                    <input type="radio" id="commerce" class="radio" name="course-name" value="commerce">
-                    <label for="commerce"> Commerce </label>
-                    <input type="radio" id="government-exams" class="radio" name="course-name" value="government-exams">
-                    <label for="government-exams"> Government Exams </label> <br>
-                    <input type="search" class=" form-control me-2 search-engine" placeholder="Get Your Answer Quickly"
-                        aria-label="Search" required>
-                    <button class="btn" type="submit">Search</button>
-                </form>
-                <a href="index.html"><img src="images/logo.png"></a>
-            </div>
+                <form id="searchForm" class="search-bar" action="search result.php" method="GET" class="search-bar">
+              <input type="radio" id="engineering" class="radio" name="course" value="JEE" required>
+              <label for="engineering"> Engineering </label>
+              <input type="radio" id="medical" class="radio" name="course" value="NEET" required>
+              <label for="medical"> Medical </label>
+              <input type="radio" id="commerce" class="radio" name="course" value="COMMERCE" required>
+              <label for="commerce"> Commerce </label>
+              <input type="radio" id="government-exams" class="radio" name="course" value="UPSC" required>
+              <label for="government-exams"> Government Exams </label> <br>
+              <input name="search" type="search" class=" form-control me-2 search-engine" placeholder="Get Your Answer Quickly" aria-label="Search" oninput="showSuggestions()" required>
+              <button class="btn" type="submit">Search</button>  
+              <div id="suggestions" class="result" style="color:white; font-size:20px; z-index:100; position: fixed; background-color: rebeccapurple;
+              height: auto;
+              padding: 2rem;
+              background: #45338b;
+              border-radius: 3rem;
+              margin: auto;
+              width: 53%;
+              display: none;"></div>     
+          </form>
+            <a href="index.html"><img src="images/logo.png"></a>
+          </div>
         </nav>
-    </div>
+      </div>
 
     <!-- Navbar End -->
 
@@ -312,21 +352,20 @@
 
     <!-- Optional JavaScript; choose one of the two! -->
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-        crossorigin="anonymous"></script>
+   <!-- Option 1: Bootstrap Bundle with Popper -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
     -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
 </body>
 
 </html>

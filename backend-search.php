@@ -8,7 +8,7 @@ if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
   
-if(isset($_REQUEST["term"])){
+if(isset($_REQUEST["term"])&&isset($_REQUEST["term1"])){
     // Prepare a select statement
     $table=$_REQUEST["term1"];
     $sql = "SELECT * FROM $table WHERE question LIKE ?";
@@ -41,6 +41,9 @@ if(isset($_REQUEST["term"])){
    
     // Close statement
     mysqli_stmt_close($stmt);
+}
+else{
+    echo "Please select a course!";
 }
  
 // close connection

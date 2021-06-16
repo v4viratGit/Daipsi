@@ -41,6 +41,7 @@
     <title>Daipsi / Home Page</title>
 
     <!-- Script for live search -->
+    <script src="jquery-3.6.0.js"></script>
     <script>
         $(document).ready(function(){
             $('.search-bar input[type="search"]').on("keyup input", function(){
