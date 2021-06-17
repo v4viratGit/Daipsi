@@ -35,7 +35,7 @@
 //     }
 
 var coursesByCategory = {
-    jee: [["courses:","jee mains","jee advanced"],["jeemains","physics","chemistry","mathematics"],["jeeadvanced","physics","chemistry","mathematics"]],
+    jee: [["courses:","jeemains","jeeadvanced"],["jeemains","jeemains physics","jeemains chemistry","jeemains mathematics"],["jeeadvanced","jeeadvanced physics","jeeadvanced chemistry","jeeadvanced mathematics"]],
     neet: [["Neetsubjects","chemistry","biology","physics"]],
    upsc: [["","prelims","Mains","optional"],["prelims","general studies paper-I","general studies paper-II"],["Mains","one of the language selected by candidates(hindi)","General studies-I","General studies-II","General studies-III","General studies-IV","paper-I Essays","English"],["optional","optional subjects(Geography)","optional subjects(Hindi)"],
            ["Genralstudiespaper-I(prelims)","general issues on environmental ecology,biology & climate change","current events of national & international importance","Economic & social development","Indian policy & governance","Indian & world geography","general science"],

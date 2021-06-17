@@ -8,8 +8,19 @@ $message=$_POST['message'];
 //$opt=$_POST['optradio'];
 $course=$_POST['course'];
 $subject=$_POST['category'];
-$purchase_course="SELECT course_name FROM purchases WHERE course_name='$course' AND users_email='$email'";
+if($subject==='jeemains physics' || $subject==='jeemains chemistry' || $subject==='jeemains mathematics')
+{
+$purchase_course="SELECT course_name FROM purchases WHERE course_name='jeemains' AND users_email='$email'";
 $purchase_subject="SELECT course_name FROM purchases WHERE course_name='$subject' AND users_email='$email'";
+}
+elseif($subject==='jeeadvanced physics' || $subject==='jeeadvanced chemistry' || $subject==='jeeadvanced mathematics'){
+  $purchase_course="SELECT course_name FROM purchases WHERE course_name='jeeadvanced' AND users_email='$email'";
+  $purchase_subject="SELECT course_name FROM purchases WHERE course_name='$subject' AND users_email='$email'";
+}
+else{
+  $purchase_course="SELECT course_name FROM purchases WHERE course_name='$course' AND users_email='$email'";
+$purchase_subject="SELECT course_name FROM purchases WHERE course_name='$subject' AND users_email='$email'";
+}
 $id=1;
 $result1 = mysqli_query($con, $purchase_course);
 $result2 = mysqli_query($con, $purchase_subject);

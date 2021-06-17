@@ -70,6 +70,7 @@ if(isset($_POST['signup']))
     {  
         $_SESSION['user_id'] = $user_email;
         $_SESSION['email'] = $user_email;
+        $_SESSION['nam']=$user_name;
         $_SESSION['coun']="a";
         echo '<script>';
         echo 'window.location.href = "index.php";';

@@ -312,7 +312,7 @@
     <!-- Navbar End -->
 
     <!-- User Profile Start -->
-<?php if($_SESSION['coun']=="a"){
+<?php if(isset($_SESSION['coun'])){
     ?>
     <div class="user-profile">
         <div class="user-profile-direction">
@@ -567,8 +567,7 @@
     </div>
 
     <!-- User Profile End -->
-<?php }
-elseif(!isset($_SESSION['coun']))?>
+<?php }else{?>
 <!-- User Profile start -->
 <div class="user-profile">
         <div class="user-profile-direction">
@@ -809,9 +808,9 @@ elseif(!isset($_SESSION['coun']))?>
     </div>
     </div>
     </div>
-
+<?php } ?>
  <!-- User Profile End -->
- <?php}?>
+ 
     <!-- My Courses Start -->
 
     <div class="common">
