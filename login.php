@@ -4,7 +4,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['index']))
     {
         $email = $_POST['email'];
         $password = $_POST['pass'];
-        $query = "SELECT * FROM users WHERE email='$email' AND userpass='$password'";
+        $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
         $result = mysqli_query($con, $query) or die(mysqli_error($con));
         $count = mysqli_num_rows($result);
 
@@ -29,7 +29,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['index']))
     elseif($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['user'])){
         $email = $_POST['email'];
         $password = $_POST['pass'];
-        $query = "SELECT * FROM users WHERE email='$email' AND userpass='$password'";
+        $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
         $userquery = "SELECT * FROM profil WHERE email='$email'";
         $result1 = mysqli_query($con, $query) or die(mysqli_error($con));
         $result2 = mysqli_query($con, $userquery) or die(mysqli_error($con));

@@ -207,7 +207,7 @@
               <label for="government-exams"> Government Exams </label> <br>
               <input name="search" type="search" class=" form-control me-2 search-engine" placeholder="Get Your Answer Quickly" aria-label="Search" oninput="showSuggestions()" required>
               <button class="btn" type="submit">Search</button>  
-              <div id="suggestions" onclick='submitForm();' class="result" style="color:white; font-size:20px; z-index:100; position: fixed; background-color: rebeccapurple;
+              <div id="suggestions" onclick='setTimeout(submitForm, 10);' class="result" style="color:white; font-size:20px; z-index:100; position: fixed; background-color: rebeccapurple;
               height: auto;
               padding: 2rem;
               background: #45338b;

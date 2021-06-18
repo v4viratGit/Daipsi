@@ -201,9 +201,9 @@
     <?php
         $search=$_GET["search"];
         $course=$_GET["course"];
-        $queryForQuestion="SELECT * FROM $course WHERE MATCH(question) AGAINST ('%" . $search . "%')";
-        $run=mysqli_query($con,$queryForQuestion) or die(mysqli_error($con));
-        $foundNum=mysqli_num_rows($run);
+        $queryForQuestion="SELECT * FROM $course WHERE (question)='$search'";
+        $getQuestions=mysqli_query($con,$queryForQuestion);
+        $foundNum=mysqli_num_rows($getQuestions)or die(mysqli_error($con));
         if($foundNum==0){
             $table=$course."_queries";
             $insertQuery="insert into $table (question) VALUE ('$search, $course')";
@@ -215,11 +215,10 @@
     <div class="search-found">
         <div class="search-found-content">
             <?php
-            $getQuestions=mysqli_query($con,$queryForQuestion);
             while($runRows=mysqli_fetch_array($getQuestions)){
                 $question=$runRows['question'];
-                $queryForAnswer="SELECT * FROM $course WHERE (question) = '$question'";
-                $getAnswer=$run=mysqli_query($con,$queryForAnswer) or die(mysqli_error($con));
+                $queryForAnswer="SELECT answer FROM $course WHERE (question) = '$question'";
+                $getAnswer=mysqli_query($con,$queryForAnswer) or die(mysqli_error($con));
                 ?>
             <button class="collapsible" data-bs-toggle="tooltip" data-bs-placement="right" title="Click on this to see answer">
                 <?php echo $runRows['question'];?>
